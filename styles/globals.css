@@ -6,30 +6,382 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+  --level-size: 550px;
+  --tile-size: calc(var(--level-size) / 20);
+  --helmet-offset: calc(var(--tile-size) / 2);
+  --sprite-size: calc(var(--tile-size) * 4);
+  --updown: 0%;
+  --leftright: 0%;
+}
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-family: Menlo, Monaco, Lucida Console, Courier New, monospace;
-}
-
-.container {
+.app {
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background-color: rgb(94, 94, 94);
+  background-image: url("../public/HardDrivesBG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.level {
+  max-width: var(--level-size);
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.board {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.board-img {
+  width: 100%;
+  height: 100%;
+}
+
+.chest {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  position: absolute;
+  background-image: url("https://github.com/LucasLevino/Heroway/blob/main/src/assets/imgs/chest.png?raw=true");
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  animation: chest-animation 4s steps(2) infinite;
+}
+
+@keyframes chest-animation {
+  from {
+      background-position-x: 0;
+  }
+
+  to {
+      background-position-x: -96px;
+  }
+}
+
+.forniture {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  position: absolute;
+}
+
+.hero {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  background-image: url("../public/Rade_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+}
+
+@keyframes heroAnimation {
+  from {
+      background-position-x: 0;
+  }
+
+  to {
+      background-position-x: calc(-1 * var(--tile-size) * 4);
+  }
+}
+
+.mini-demon {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  z-index: 1;
+  position: absolute;
+  background-image: url("../public/Merchant_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: miniDemonAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+}
+
+@keyframes miniDemonAnimation {
+  from {
+      background-position-x: 0;
+  }
+
+  to {
+      background-position-x: calc(-1 * var(--tile-size) * 4);
+  }
+}
+
+.trap {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  position: absolute;
+  background-image: url("https://github.com/LucasLevino/Heroway/blob/main/src/assets/imgs/trap.png?raw=true");
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  animation: trapAnimation 1s steps(8) infinite;
+}
+
+@keyframes trapAnimation {
+  from {
+      background-position-x: 0;
+  }
+
+  to {
+      background-position-x: -384px;
+  }
+}
+
+/* Game Boy */
+
+.bg {
+  background-color: #1d1d1d;
+}
+
+
+.gb {
+  background-image: url("../public/gbtile.png");
+  background-size: 64px 64px;
+  background-color: var(--color-gb);
+  margin: 0;
+  max-width: 900px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  box-shadow: inset 22px -27px 17px -13px rgb(0 0 0 / 40%), inset -21px 21px 26px -19px rgb(0 0 0 / 30%), -9px 58px 205px -19px rgb(0 0 0 / 50%), -90px 198px 205px -19px rgb(0 0 0 / 20%);
+}
+
+figure {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+
+section {
+  display: block;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.gb-bar {
+  position: relative;
+  width: 100%;
+  margin: 50px 0 20px;
+  height: 6px;
+  z-index: 0;
+  opacity: .7;
+  margin-bottom: 6px;
+  box-shadow: inset -4px -1px 4px 0 rgb(0 0 0 / 60%), inset 4px -1px 4px 0 rgb(255 255 255 / 60%), -1px 1px 1px 0 rgb(255 255 255 / 80%);
+}
+
+.gb-bar:before {
+  right: 100px;
+  left: 100px;
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 6px;
+  height: 50px;
+  top: -50px;
+  background: #535353;
+  box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 80%), -1px 0 1px 0 rgb(255 255 255 / 80%);
+}
+
+.gb-bar:after {
+  right: 100px;
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 6px;
+  height: 50px;
+  top: -50px;
+  background: #505050;
+  box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 80%), -1px 0 1px 0 rgb(255 255 255 / 80%);
+}
+
+
+.gb-screen {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 40px;
+  border-radius: 20px;
+  box-shadow: inset 1px -1px 1px 0 rgb(0 0 0 / 25%), inset -1px 1px 1px 0 rgb(255 255 255 / 90%);
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+  background: #a9a9a9;
+}
+
+
+.screen-inner {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: 100%;
+  border: 10px solid #000;
+  height: auto;
+  background: #1a1c2c;
+  box-shadow: -1px 1px 1px 0 rgb(255 255 255 / 70%);
+  margin: 0 auto;
+  position: relative;
+}
+
+.screen-top {
+  max-width: 100%;
+  overflow: visible;
+  height: 10px;
+  transform: translateY(0px);
+  margin: 0 0 10px 0;
+}
+
+.screen-top::before {
+  bottom: 2px;
+  background: #1a2b4f;
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  z-index: 0;
+}
+
+.screen-top::after {
+  top: 2px;
+  background: #7b2753;
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  z-index: 0;
+}
+
+.screen-top span {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 8%;
+  font-family: nrsb;
+  font-weight: 900;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background: #a9a9a9;
+}
+
+.gb-dpad {
+  left: 0;
+
+  /* top: 585.325px; width: 301.6px; height: 235px; */
+}
+
+.gb-buttons {
+  right: 0;
+  will-change: transform;
+  /* top: 585.325px; width: 301.6px; height: 235px; */
+}
+
+.updownimg {
+  will-change: transform;
+  height: 100%;
+  width: auto;
+  transform: translateX(var(--updown));
+}
+
+.leftrightimg {
+  will-change: transform;
+  height: 100%;
+  width: auto;
+  transform: translateX(var(--leftright));
+}
+
+.touchcon {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  z-index: 2;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.touchup {
+  height: 150px;
+  width: 300px;
+}
+
+.touchdown {
+  height: 150px;
+  width: 300px;
+}
+
+.touchleft {
+  height: 300px;
+  width: 150px;
+}
+
+.touchright {
+  height: 300px;
+  width: 150px;
+}
+
+.dpad-inner {
+  overflow: hidden;
+  height: 300px;
+  width: 300px;
+  left: 30.1625px;
+  bottom: 0px;
+}
+
+.buttons-inner {
+  overflow: hidden;
+  height: 300px;
+  width: 300px;
+  right: 30.1625px;
+  bottom: 0px;
+}
+
+.img-con {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
 }
