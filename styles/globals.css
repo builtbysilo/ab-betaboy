@@ -2,14 +2,21 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: lores-12, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+p, h1, h2, h3, h4, h5, h6, {
+  font-family: lores-12, sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 :root {
-  --level-size: 450px;
+  --level-size: 300px;
   --tile-size: calc(var(--level-size) / 20);
-  --helmet-offset: calc(var(--tile-size) / 2);
+  --helmet-offset: calc(var(--tile-size) / 4);
   --sprite-size: calc(var(--tile-size) * 4);
   --updown: 0%;
   --leftright: 0%;
@@ -231,7 +238,7 @@ section {
   position: relative;
   margin: 0 auto;
   padding: 10px 20px;
-  margin: 30px;
+  margin: 10px 20px;
   border-radius: 20px;
   box-shadow: inset 1px -1px 1px 0 rgb(0 0 0 / 25%), inset -1px 1px 1px 0 rgb(255 255 255 / 90%);
   display: block;
@@ -283,14 +290,12 @@ section {
   z-index: 0;
 }
 
-.screen-top span {
+.screen-top p {
   position: absolute;
   z-index: 2;
   top: 50%;
   transform: translateY(-50%);
   right: 8%;
-  font-family: nrsb;
-  font-weight: 900;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;

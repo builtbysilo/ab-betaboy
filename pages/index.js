@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import React, { useEffect } from 'react';
 import Image from 'next/image'
-// import Header from '@components/Header'
-// import Footer from '@components/Footer'
+
 
 export default function Home() {
   useEffect(() => {
@@ -47,6 +46,73 @@ export default function Home() {
         root.style.setProperty('--leftright', '0%');
     })
 
+    var minutes = "00";
+    var seconds = "00";
+    var tens = "00";
+    var appendTens = document.getElementById("tens")
+    var appendSeconds = document.getElementById("seconds")
+    var appendMinutes = document.getElementById("minutes")
+    var buttonStart = document.getElementById('button-start');
+    var buttonStop = document.getElementById('button-stop');
+    var buttonReset = document.getElementById('button-reset');
+    var Interval ;
+
+    buttonStart.onclick = function() {
+
+      clearInterval(Interval);
+        Interval = setInterval(startTimer, 10);
+    }
+
+      buttonStop.onclick = function() {
+        clearInterval(Interval);
+    }
+
+
+    buttonReset.onclick = function() {
+      clearInterval(Interval);
+      tens = "00";
+      seconds = "00";
+      minutes = "00";
+      appendTens.innerHTML = tens;
+      appendSeconds.innerHTML = seconds;
+      appendMinutes.innerHTML = minutes;
+    }
+
+
+
+  function startTimer () {
+    tens++;
+
+    if(tens <= 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+
+    if (tens > 9){
+      appendTens.innerHTML = tens;
+
+    }
+
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+
+    if (seconds > 59) {
+      console.log("minutes");
+      minutes++;
+      appendMinutes.innerHTML = "0" + minutes;
+      seconds = 0;
+      appendSeconds.innerHTML = "0" + 0;
+    }
+
+  }
     // root.style.setProperty('--level-size', game_size);
 
 
@@ -60,6 +126,7 @@ export default function Home() {
 
     // }
     // window.addEventListener('resize', reportWindowSize)
+
 
 
 
@@ -354,14 +421,20 @@ export default function Home() {
       <Head>
         <title>Next.js Starter!</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://use.typekit.net/swz2ypo.css"></link>
       </Head>
 
       <div className="app">
         <div className="gb">
             <div className="gb-bar"></div>
+            <div className="timer">
+              <button id="button-start">Start</button>
+              <button id="button-stop">Stop</button>
+              <button id="button-reset">Reset</button>
+            </div>
             <div className="gb-screen started">
                 <div className="screen-top">
-                    <span>mUSIC BY ARTISTNAME</span>
+                <p><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
                 </div>
                 <div className="screen-inner">
                     <div id="level" className="level">
