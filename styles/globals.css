@@ -7,12 +7,13 @@ body {
 }
 
 :root {
-  --level-size: 550px;
+  --level-size: 500px;
   --tile-size: calc(var(--level-size) / 20);
   --helmet-offset: calc(var(--tile-size) / 2);
   --sprite-size: calc(var(--tile-size) * 4);
   --updown: 0%;
   --leftright: 0%;
+  --controls: calc(var(--level-size) / 2);
 }
 
 * {
@@ -24,7 +25,7 @@ body {
 
 .app {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -328,8 +329,8 @@ section {
 
 .touchcon {
   position: absolute;
-  height: 300px;
-  width: 300px;
+  height: var(--controls);
+  width: var(--controls);
   z-index: 2;
 }
 
@@ -339,37 +340,37 @@ section {
 }
 
 .touchup {
-  height: 150px;
-  width: 300px;
+  height: calc(var(--controls) / 2);
+  width: var(--controls);
 }
 
 .touchdown {
-  height: 150px;
-  width: 300px;
+  height: calc(var(--controls) / 2);
+  width: var(--controls);
 }
 
 .touchleft {
-  height: 300px;
-  width: 150px;
+  width: calc(var(--controls) / 2);
+  height: var(--controls);
 }
 
 .touchright {
-  height: 300px;
-  width: 150px;
+  width: calc(var(--controls) / 2);
+  height: var(--controls);
 }
 
 .dpad-inner {
   overflow: hidden;
-  height: 300px;
-  width: 300px;
+  height: var(--controls);
+  width: var(--controls);
   left: 30.1625px;
   bottom: 0px;
 }
 
 .buttons-inner {
   overflow: hidden;
-  height: 300px;
-  width: 300px;
+  height: var(--controls);
+  width: var(--controls);
   right: 30.1625px;
   bottom: 0px;
 }
