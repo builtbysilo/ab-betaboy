@@ -29,8 +29,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  background-color: rgb(200, 200, 200);
+  justify-content: center;
+  background-color: rgb(129, 129, 129);
   background-image: url("../public/HardDrivesBG.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -160,7 +160,7 @@ body {
   background-color: var(--color-gb);
   margin: 0;
   max-width: 900px;
-  min-height: 95%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -230,14 +230,11 @@ section {
 .gb-screen {
   position: relative;
   margin: 0 auto;
-  padding: 4% 6%;
+  padding: 10px 20px;
+  margin: 30px;
   border-radius: 20px;
   box-shadow: inset 1px -1px 1px 0 rgb(0 0 0 / 25%), inset -1px 1px 1px 0 rgb(255 255 255 / 90%);
   display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 40px;
-  margin-inline-end: 40px;
   background: #a9a9a9;
 }
 
@@ -340,7 +337,7 @@ section {
 }
 
 .touchup {
-  height: calc(var(--controls) / 2);
+  height: 150px;
   width: var(--controls);
 }
 
@@ -350,13 +347,13 @@ section {
 }
 
 .touchleft {
-  width: calc(var(--controls) / 2);
   height: var(--controls);
+  width: calc(var(--controls) / 2);
 }
 
 .touchright {
-  width: calc(var(--controls) / 2);
   height: var(--controls);
+  width: calc(var(--controls) / 2);
 }
 
 .dpad-inner {
