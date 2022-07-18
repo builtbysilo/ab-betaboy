@@ -370,7 +370,7 @@ export default function Home() {
                 </div>
             </div>
             <div className="logo">
-                <Image src="/BetaBoyLogo.svg" alt="Decentel BetaBoy" width="300px" height="100%"/>
+                <Image src="/BetaBoyLogo.svg" alt="Decentel BetaBoy" width="200px" height="25px"/>
             </div>
             <div className="controls">
             <section className="gb-dpad">
