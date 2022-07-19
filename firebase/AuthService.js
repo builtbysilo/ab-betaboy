@@ -1,10 +1,11 @@
-import * as firebase from "firebase/app";
-import { TwitterAuthProvider } from "firebase/auth";
+import firebase from "firebase/compat/app";
+import { getAuth, signInWithPopup, TwitterAuthProvider } from "firebase/auth";
+import "firebase/compat/auth";
 export const AuthService = {
     loginWithTwitter: async() => {
-        const provider = new TwitterAuthProvider();
+        const provider = new firebase.auth.TwitterAuthProvider();
         try {
-            const userCred = await TwitterAuthProvider().signInWithPopUp(provider);
+            const userCred = await firebase.auth().signInWithPopup(provider);
             return{
                 user: userCred,
             };

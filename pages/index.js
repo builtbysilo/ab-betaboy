@@ -6,7 +6,6 @@ import useAuth from '../firebase/Auth';
 
 export default function Home() {
 
-  const { user, loginWithTwitter, error } = useAuth();
 
   useEffect(() => {
 
@@ -422,6 +421,8 @@ export default function Home() {
 
 
 })
+
+const { user, loginWithTwitter, error } = useAuth();
 
   return (
     <div className="container">

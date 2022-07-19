@@ -8,13 +8,13 @@ export default function useAuth(){
 }
 
 export function AuthProvider(props) {
-    const {user, setUser} = useState(null);
-    const {error, setError} = useState('');
+    const [user, setUser] = useState("null");
+    const [error, setError] = useState('');
 
     const loginWithTwitter = async () => {
-        const {error, user} = await AuthService.loginWithTwitter();
+        const { error, user } = await AuthService.loginWithTwitter();
         setUser(user ?? null);
-        setError(error ?? '');
+        setError(error ?? "");
     };
 
     const logout = async () => {

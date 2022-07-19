@@ -8,8 +8,7 @@ function Application({ Component, pageProps }) {
     <AuthProvider>
       <Component {...pageProps} />
     </AuthProvider>
-  )
-
+  );
 }
 
 export default Application
