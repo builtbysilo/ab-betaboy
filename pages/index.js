@@ -5,12 +5,12 @@ import useAuth from '../firebase/Auth';
 import { withPublic } from "../firebase/Route"
 
 
-function Home({ auth }) {
+export default function Home() {
 
 
 
 
-const { user, loginWithTwitter, logout, error } = auth;
+const { user, loginWithTwitter, logout, error } = useAuth();
 
   return (
     <div className="container">
@@ -73,4 +73,3 @@ const { user, loginWithTwitter, logout, error } = auth;
   )
 }
 
-export default withPublic(Home);
