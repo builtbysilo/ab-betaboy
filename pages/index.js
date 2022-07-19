@@ -25,7 +25,7 @@ const { user, loginWithTwitter, logout, error } = auth;
             <div className="gb-bar"></div>
             <h1>{user?.displayName}</h1>
             {error && <h1>{error}</h1>}
-            <button onClick={loginWithTwitter}>Login</button>
+            <button onClick={loginWithTwitter}>Loginn</button>
             <button onClick={logout}>Logout</button>
             <div className="timer">
               <button id="button-start">Startt</button>
