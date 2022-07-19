@@ -9,7 +9,6 @@ export default function Home() {
 
 
 
-
 const { user, loginWithTwitter, logout, error } = useAuth();
 
   return (
@@ -27,11 +26,6 @@ const { user, loginWithTwitter, logout, error } = useAuth();
             {error && <h1>{error}</h1>}
             <button onClick={loginWithTwitter}>Loginn</button>
             <button onClick={logout}>Logout</button>
-            <div className="timer">
-              <button id="button-start">Startt</button>
-              <button id="button-stop">Stop</button>
-              <button id="button-reset">Reset</button>
-            </div>
             <div className="gb-screen started">
                 <div className="screen-top">
                 <p><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
