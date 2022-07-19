@@ -1,10 +1,10 @@
 import * as firebase from "firebase/app";
-import "firebase/auth";
+import { TwitterAuthProvider } from "firebase/auth";
 export const AuthService = {
     loginWithTwitter: async() => {
-        const provider = new firebase.auth.TwitterAuthProvider();
+        const provider = new TwitterAuthProvider();
         try {
-            const userCred = await firebase.auth().signInWithPopUp(provider);
+            const userCred = await TwitterAuthProvider().signInWithPopUp(provider);
             return{
                 user: userCred,
             };
@@ -15,6 +15,6 @@ export const AuthService = {
         }
     },
     logout: async() => {
-        await firebase.auth().signOut();
+        await TwitterAuthProvider().signOut();
     }
 };
