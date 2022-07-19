@@ -439,7 +439,7 @@ const { user, loginWithTwitter, error } = useAuth();
             {error && <h1>{error}</h1>}
             <button onClick={loginWithTwitter}>Test</button>
             <div className="timer">
-              <button id="button-start">Start</button>
+              <button id="button-start">Startt</button>
               <button id="button-stop">Stop</button>
               <button id="button-reset">Reset</button>
             </div>
