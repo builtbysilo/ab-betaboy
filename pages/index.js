@@ -1,14 +1,21 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import React, { useEffect } from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
+import useAuth from '../firebase/Auth';
 
 
 export default function Home() {
+
+  const { user, loginWithTwitter, error } = useAuth();
+
   useEffect(() => {
+
     var gamewidth = document.getElementById("level").clientWidth;
     var game_size = gamewidth;
     var tile_size = gamewidth / 20;
     var helmet_offset = tile_size * 0.5;
+
+
 
     let root = document.documentElement;
 
@@ -427,6 +434,9 @@ export default function Home() {
       <div className="app">
         <div className="gb">
             <div className="gb-bar"></div>
+            <h1>{user?.uid}</h1>
+            {error && <h1>{error}</h1>}
+            <button onClick={loginWithTwitter}>Test</button>
             <div className="timer">
               <button id="button-start">Start</button>
               <button id="button-stop">Stop</button>
