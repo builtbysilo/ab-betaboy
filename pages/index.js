@@ -2,14 +2,15 @@ import Head from 'next/head';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import useAuth from '../firebase/Auth';
+import { withPublic } from "../firebase/Route"
 
 
-export default function Home() {
+function Home({ auth }) {
 
 
 
 
-const { user, loginWithTwitter, logout, error } = useAuth();
+const { user, loginWithTwitter, logout, error } = auth;
 
   return (
     <div className="container">
@@ -24,7 +25,7 @@ const { user, loginWithTwitter, logout, error } = useAuth();
             <div className="gb-bar"></div>
             <h1>{user?.displayName}</h1>
             {error && <h1>{error}</h1>}
-            <button onClick={loginWithTwitter}>Login</button>
+            <button onClick={loginWithTwitter}>Loginn</button>
             <button onClick={logout}>Logout</button>
             <div className="timer">
               <button id="button-start">Startt</button>
@@ -71,3 +72,5 @@ const { user, loginWithTwitter, logout, error } = useAuth();
     </div>
   )
 }
+
+export default withPublic(Home);
