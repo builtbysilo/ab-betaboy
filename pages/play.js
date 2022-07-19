@@ -2,13 +2,14 @@ import Head from 'next/head';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { withProtected } from "../firebase/Route"
+import WriteToCloudFirestore from "../firebase/Write"
 
 
 
 function Play({ auth }) {
 
 
-  useEffect(() => {
+useEffect(() => {
 
     var gamewidth = document.getElementById("level").clientWidth;
     var game_size = gamewidth;
@@ -439,6 +440,7 @@ const { user, loginWithTwitter, logout, error } = auth;
             {error && <h1>{error}</h1>}
             <button onClick={loginWithTwitter}>Login</button>
             <button onClick={logout}>Logout</button>
+            <WriteToCloudFirestore/>
             <div className="timer">
               <button id="button-start">Startt</button>
               <button id="button-stop">Stop</button>
@@ -450,7 +452,6 @@ const { user, loginWithTwitter, logout, error } = auth;
                 </div>
                 <div className="screen-inner">
                     <div id="level" className="level">
-                        <div className="hero"></div>
                         <Image className="board-img" width="600px" height="600px" src="/Level1_GameMap.gif" alt="AlphaBots Level 1" />
                     </div>
                 </div>
