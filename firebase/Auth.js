@@ -21,7 +21,7 @@ export function AuthProvider(props) {
         await AuthService.logout();
         setUser(null);
     }
-    const value = {user,error,loginWithTwitter,logout}
+    const value = {user,error,loginWithTwitter,logout, setUser}
 
     return <authContext.Provider value={value} {...props} />;
 }

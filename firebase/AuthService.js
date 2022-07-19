@@ -7,7 +7,7 @@ export const AuthService = {
         try {
             const userCred = await firebase.auth().signInWithPopup(provider);
             return{
-                user: userCred,
+                user: userCred.user,
             };
         } catch (e){
             return {
@@ -16,6 +16,6 @@ export const AuthService = {
         }
     },
     logout: async() => {
-        await TwitterAuthProvider().signOut();
+        await firebase.auth().signOut();
     }
 };
