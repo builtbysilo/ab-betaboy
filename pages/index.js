@@ -1,20 +1,20 @@
 import Head from 'next/head';
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import useAuth from '../firebase/Auth';
 import { withPublic } from "../firebase/Route"
+import WriteToCloudFirestore from "../firebase/Write"
+import ReadToCloudFirestore from "../firebase/Read"
+import StopWatch from '@components/StopWatch';
+
+function Home({ auth }) {
 
 
-function Home() {
-
-
-
-const { user, loginWithTwitter, logout, error } = useAuth();
+const { user, loginWithTwitter, logout, error } = auth;
 
   return (
     <div className="container">
       <Head>
-        <title>Next.js Starter!</title>
+        <title>BetaBoy Emulator</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://use.typekit.net/swz2ypo.css"></link>
       </Head>
@@ -24,11 +24,15 @@ const { user, loginWithTwitter, logout, error } = useAuth();
             <div className="gb-bar"></div>
             <h1>{user?.displayName}</h1>
             {error && <h1>{error}</h1>}
-            <button onClick={loginWithTwitter}>Loginn</button>
+            <button onClick={loginWithTwitter}>Login</button>
             <button onClick={logout}>Logout</button>
+            <WriteToCloudFirestore/>
+            <ReadToCloudFirestore/>
+            <StopWatch/>
+
             <div className="gb-screen started">
                 <div className="screen-top">
-                <p><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
+                <h3>00:12:12</h3>
                 </div>
                 <div className="screen-inner">
                     <div id="level" className="level">
