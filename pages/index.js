@@ -22,13 +22,6 @@ const { user, loginWithTwitter, logout, error } = auth;
       <div className="app">
         <div className="gb">
             <div className="gb-bar"></div>
-            <h1>{user?.displayName}</h1>
-            {error && <h1>{error}</h1>}
-            <button onClick={loginWithTwitter}>Login</button>
-            <button onClick={logout}>Logout</button>
-            <WriteToCloudFirestore/>
-            <ReadToCloudFirestore/>
-            <StopWatch/>
 
             <div className="gb-screen started">
                 <div className="screen-top">
@@ -36,7 +29,14 @@ const { user, loginWithTwitter, logout, error } = auth;
                 </div>
                 <div className="screen-inner">
                     <div id="level" className="level">
-                        <Image className="board-img" width="600px" height="600px" src="/Level1_GameMap.gif" alt="AlphaBots Level 1" />
+                    <button className="start-button" onClick={loginWithTwitter}>
+                        <Image width="20px" height="20px" className="twitter-icon" src="/Twitter-Icon.png" alt="Twitter" />
+                        Connect With Twitter
+                    </button>
+                        {/* <div className="start-button">
+                            <h4>Connect With Twitter</h4>
+                        </div> */}
+                        <Image className="start-screen" width="600px" height="600px" src="/GameLogo.gif" alt="AlphaBots Level 1" />
                     </div>
                 </div>
             </div>

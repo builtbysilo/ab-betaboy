@@ -1,6 +1,15 @@
 import React from "react";
+import { useTime, useUpdateTime} from './GameBoy/timerContext'
+
 
 export default function Timer(props) {
+
+const {handleStart, handlePauseResume, handleReset}  = useUpdateTime()
+
+const context = useTime();
+
+const [isPaused, setIsPaused] = context['paused'];
+const [isActive, setIsActive] = context['active'];
 return (
 	<div className="timer">
 	<span className="digits">

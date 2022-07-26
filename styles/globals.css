@@ -7,20 +7,21 @@ body {
   font-style: normal;
 }
 
-p, h1, h2, h3, h4, h5, h6, {
+p, h1, h2, h3, h4, h5, h6, button {
   font-family: lores-12, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 :root {
-  --level-size: 300px;
+  --level-size: 500px;
   --tile-size: calc(var(--level-size) / 20);
   --helmet-offset: calc(var(--tile-size) / 4);
   --sprite-size: calc(var(--tile-size) * 4);
   --updown: 0%;
   --leftright: 0%;
   --controls: calc(var(--level-size) / 1.5);
+  --heroTop: 300px;
 }
 
 * {
@@ -38,10 +39,10 @@ p, h1, h2, h3, h4, h5, h6, {
   align-items: center;
   justify-content: center;
   background-color: rgb(129, 129, 129);
-  background-image: url("../public/HardDrivesBG.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-image: url("../public/GameBackground.png");
+  background-repeat: repeat;
+  /* background-size: cover;
+  background-position: center; */
 }
 
 .level {
@@ -99,6 +100,63 @@ p, h1, h2, h3, h4, h5, h6, {
   animation: heroAnimation 1s steps(4) infinite;
   transform: translateY(calc(-1 * var(--helmet-offset)));
   background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
+}
+
+.rade {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  background-image: url("../public/Rade_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
+}
+
+.zeek {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  background-image: url("../public/Zeek_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
+}
+
+.forah {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  background-image: url("../public/Forah_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
+}
+
+.theo {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  background-image: url("../public/Theo_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
 }
 
 @keyframes heroAnimation {
@@ -111,7 +169,46 @@ p, h1, h2, h3, h4, h5, h6, {
   }
 }
 
-.mini-demon {
+.merchant1 {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  z-index: 1;
+  position: absolute;
+  background-image: url("../public/Merchant_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: miniDemonAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+}
+
+.merchant2 {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  z-index: 1;
+  position: absolute;
+  background-image: url("../public/Merchant_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: miniDemonAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+}
+
+.merchant3 {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  z-index: 1;
+  position: absolute;
+  background-image: url("../public/Merchant_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: miniDemonAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+}
+
+.merchant4 {
   width: var(--tile-size);
   height: calc(var(--tile-size) + var(--helmet-offset));
   z-index: 1;
@@ -218,7 +315,7 @@ section {
   height: 50px;
   top: -50px;
   background: #535353;
-  box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 80%), -1px 0 1px 0 rgb(255 255 255 / 80%);
+  box-shadow: inset -4px -1px 4px 0 rgb(0 0 0 / 60%), inset 4px -1px 4px 0 rgb(255 255 255 / 60%), -1px 1px 1px 0 rgb(255 255 255 / 80%);
 }
 
 .gb-bar:after {
@@ -230,9 +327,24 @@ section {
   height: 50px;
   top: -50px;
   background: #505050;
-  box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 80%), -1px 0 1px 0 rgb(255 255 255 / 80%);
+  box-shadow: inset -4px -1px 4px 0 rgb(0 0 0 / 60%), inset 4px -1px 4px 0 rgb(255 255 255 / 60%), -1px 1px 1px 0 rgb(255 255 255 / 80%);
 }
 
+
+.name-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  align-items: center;
+}
+
+.music {
+  background-color: #a9a9a9;
+  z-index: 1;
+  margin-right: 40px;
+  padding: 0 10px 0 10px;
+}
 
 .gb-screen {
   position: relative;
@@ -263,9 +375,11 @@ section {
 .screen-top {
   max-width: 100%;
   overflow: visible;
-  height: 10px;
+  height: 14px;
   transform: translateY(0px);
   margin: 0 0 10px 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .screen-top::before {
@@ -386,18 +500,19 @@ section {
 .logo {
   display: flex;
   justify-content: flex-start;
-  width: 90%;
+  width: 80%;
 }
 
 
 .stop-watch{
 	height: 50px;
-	width: 200px;
-	background-color: #0d0c1b;
+	width: 150px;
+	background-color: #dadada;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+  border-radius: 20px;
 }
 
 .timer{
@@ -407,12 +522,12 @@ section {
 }
 
 .digits{
-	font-size: 14px;
-	color: #f5f5f5;
+	font-size: 18px;
+	color: #080808;
 }
 
 .mili-sec{
-	color: #e42a2a;
+	color: #a9a9a9;
 }
 
 <pre>.Control-Buttons {
@@ -450,5 +565,78 @@ section {
 
   .popup {
     max-width: var(--level-size);
-    height: var(--level-size);
+    height: auto;
   }
+  .pu-con {
+    width: var(--level-size);
+    height:var(--level-size);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+    top: 0;
+    padding: 5%;
+  }
+
+  .pu-con p {
+    font-size: 24px;
+    color: #fff;
+    line-height: 2rem;
+    padding: 5% 2%;
+  }
+
+
+  .start-button {
+    width: 350px;
+  height: 80px;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-image: url("../public/TwitterButton.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+z-index: 1;
+top: 70%;
+background-color: transparent;
+cursor: pointer;
+border: 0px;
+font-size: 20px;
+  }
+
+  .play-button {
+    width: 350px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  background-image: url("../public/Button_Success.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+text-align: center;
+background-color: transparent;
+cursor: pointer;
+border: 0px;
+font-size: 20px;
+  }
+
+

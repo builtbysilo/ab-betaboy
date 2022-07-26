@@ -2,30 +2,45 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import Level1Map from './level1Map'
 import PopUpStart from './popupStart'
-import PopUpNextLvl1 from './popupNextLvl1'
+import PopUpGameOver from './popupGameOver'
+import PopUpNextLvl from './popupNextLvl'
+import PopUpLeaderBoard from './popupLeaderBoard'
 
-
+import { useGame, useUpdateGame} from './gameContext'
 
 export default function Level1() {
 
-    const [gameover, setgameover] = useState(true)
-    const [nextLvl, setnextLvl] = useState(false)
+    // const startGame = useGame()
+    // const nextLvl = useGame()
 
-    const toggleStart = () => {
-        setgameover(current => !current)
+    const context = useGame();
+
+    const [popUp, setPopUp] = context['popups'];
+
+    const puStartMsg = 'The Merchants of Valor have gotten inside the Outpost and there is no time to escape. Get each of our AlphaBots to safety in hopes of surviving the invasion!';
+
+    const winnerAB = 'Rade';
+    const nextAB = 'Zeek';
+
+    return (
+    <>
+    {popUp == 1 &&
+        <PopUpStart msg={puStartMsg} />
     }
-
-    const toggleNextLvl = () => {
-        setnextLvl(current => !current)
+    {popUp == 2 &&
+        <PopUpGameOver />
     }
+    {popUp == 3 &&
+        <PopUpNextLvl winner={winnerAB} next={nextAB} lvl='2' />
+    }
+    {popUp == 5 &&
+        <PopUpLeaderBoard/>
+    }
+    {popUp == 0 &&
+        <Level1Map />
+    }
+    </>
 
-
-return (
-<>
-    {gameover? <PopUpStart toggleStart={toggleStart}/>:<Level1Map toggleNextLvl={toggleNextLvl}/>}
-    {nextLvl? <PopUpNextLvl1/>:null}
-</>
-
-)
+    )
 }
 

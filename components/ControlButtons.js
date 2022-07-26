@@ -1,28 +1,38 @@
 import React from "react";
+import { useTime, useUpdateTime} from './GameBoy/timerContext'
 
 export default function ControlButtons(props) {
+
+
+const {handleStart, handlePauseResume, handleReset}  = useUpdateTime()
+
+const context = useTime();
+
+const [isPaused, setIsPaused] = context['paused'];
+const [isActive, setIsActive] = context['active'];
+
 const StartButton = (
 	<div className="btn btn-one btn-start"
-		onClick={props.handleStart}>
+	onClick={() => handleStart()}>
 	Start
 	</div>
 );
 const ActiveButtons = (
 	<div className="btn-grp">
 	<div className="btn btn-two"
-		onClick={props.handleReset}>
+		onClick={() => handleReset()}>
 		Reset
 	</div>
 	<div className="btn btn-one"
-		onClick={props.handlePauseResume}>
-		{props.isPaused ? "Resume" : "Pause"}
+		onClick={() => handlePauseResume()}>
+		{isPaused ? "Resume" : "Pause"}
 	</div>
 	</div>
 );
 
 return (
 	<div className="Control-Buttons">
-	<div>{props.active ? ActiveButtons : StartButton}</div>
+	<div>{isActive ? ActiveButtons : StartButton}</div>
 	</div>
 );
 }
