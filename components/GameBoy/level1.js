@@ -18,7 +18,7 @@ export default function Level1() {
     const [popUp, setPopUp] = context['popups'];
     const [lvl, setLvl] = context['lvls'];
 
-    const puStartMsg = 'The Merchants of Valor have gotten inside the Outpost and there is no time to escape. Get each of our AlphaBots to safety in hopes of surviving the invasion!';
+    const puStartMsg = 'The Merchants of Valor have gotten inside the Outpost, get each of our AlphaBots to safety in hopes of surviving the invasion!';
 
     const winnerAB = 'Rade';
     const nextAB = 'Zeek';

@@ -4,8 +4,9 @@ import 'firebase/compat/firestore'
 const ReadToCloudFirestore = () => {
 
     const readData = () => {
+
         try {
-            firebase.firestore().collection('games').doc('test').onSnapshot(function (doc) {
+            firebase.firestore().collection('games').doc('xFGN09EoeUDZKX1vGmtc').onSnapshot(function (doc) {
                 console.log(doc.data())
             })
             alert('data fetched')

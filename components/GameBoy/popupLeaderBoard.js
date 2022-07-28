@@ -1,7 +1,6 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useGame, useUpdateGame} from './gameContext'
-import { useTime, useUpdateTime} from './timerContext'
 
 import firebase from "firebase/compat/app";
 import 'firebase/compat/firestore';
@@ -9,29 +8,41 @@ import 'firebase/compat/firestore';
 
 export default function PopUpLeaderBoard() {
 
+        const [games, setGames] = useState([{player: "Loading...", id: "initial"}]);
 
-        const snapshot = firebase.firestore().collection('games').get()
-        console.log(snapshot)
+        const context = useGame();
+        const [popUp,setPopUp] = context['popups'];
 
-
-        // try {
-        //     firebase.firestore().collection('games').doc('test').onSnapshot(function (doc) {
-        //         console.log(doc.data())
-        //     })
-        //     alert('data fetched')
-        // } catch (error) {
-        //     console.log(error)
-        //     alert(error)
-        // }
-
+        useEffect(() =>
+            firebase.firestore().collection('games').orderBy('time').limit(40).onSnapshot((snapshot) => {
+                setGames(snapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
+            })
+        ,[]);
 
 
 return (
 
 <div id="popup" className="popup">
 <div className="pu-con">
-    <Image className="board-img" width="100px" height="100px" src="/TrophyIcon.png" alt="Level Won" />
-    <p> is safe! Now let's help hide.</p>
+    {/* <Image className="board-img" width="100px" height="100px" src="/TrophyIcon.png" alt="Level Won" /> */}
+    <div className="scores-but">
+        <div className="s-but">
+            <Image width="40px" height="40px" src="/LeaderBoard-Back.png" alt="Back" onClick={() => {setPopUp(1)}} />
+        </div>
+    </div>
+    <p>LEADERBOARD</p>
+    <div className="board-con">
+        {games.map(game => (
+            <div className="lb-time-con">
+                <div className="lb-name">
+                    <h4>{game.player}</h4>
+                </div>
+                <div className="lb-time">
+                    <h4>{game.timeFormated}</h4>
+                </div>
+            </div>
+        ))}
+    </div>
 
 
 </div>

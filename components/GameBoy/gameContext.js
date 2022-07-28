@@ -51,6 +51,7 @@ export function GameProvider({ children }) {
         console.log(lvlActive)
     }
 
+
     // const toggleStart = () => {
     //     setStartGame(current => !current)
     // }
@@ -66,9 +67,10 @@ export function GameProvider({ children }) {
         toggleGameOver,
         toggleWin,
         toggleSubmit,
+        toggleLeaderBoards,
         nextLevel,
         resetLevel,
-        toggleActive
+        toggleActive,
     }
 
 

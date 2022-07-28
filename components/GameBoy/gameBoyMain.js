@@ -13,7 +13,7 @@ export default function GameBoyMain() {
             <TopBar/>
             <Screen/>
             <div className="logo">
-                <Image src="/BetaBoyLogo.svg" alt="Decentel BetaBoy" width="200px" height="25px"/>
+                <Image src="/BetaBoyLogo.svg" className="betaboylogo" alt="Decentel BetaBoy" width="200px" height="25px"/>
             </div>
             <Controls/>
     </div>

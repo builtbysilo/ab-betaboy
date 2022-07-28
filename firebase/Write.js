@@ -7,7 +7,7 @@ import { useTime, useUpdateTime} from '../components/GameBoy/timerContext'
 const WriteToCloudFirestore = () => {
     const { user } = useAuth();
     const context = useTime();
-    const timestamp = new Date().toLocaleString();
+    const timestamp = new Date().toLocaleString('en-US', {timeZone: 'CST',});
 
     const [isPaused, setIsPaused] = context['paused'];
     const [isActive, setIsActive] = context['active'];

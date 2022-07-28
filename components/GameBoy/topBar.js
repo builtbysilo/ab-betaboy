@@ -19,9 +19,10 @@ return (
                 <div className="name">
                     <div className="username">
                     <h4>{user?.displayName}</h4>
+                    <h4>{user?.user_id}</h4>
+
                     {error && <h1>{error}</h1>}
                     <button onClick={logout}>Logout</button>
-                    <ReadToCloudFirestore/>
                 </div>
                 </div>
                 <div className="time">

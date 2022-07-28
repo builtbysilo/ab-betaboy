@@ -20,7 +20,7 @@ export default function Screen() {
         <div className="gb-screen started">
             <div className="screen-top">
                 <div className="music">
-                    <h4>MUSIC BY: Dariush Danowski</h4>
+                    <a href="https://linktr.ee/prodbydairy" target="_blank">MUSIC BY: DARIUSH DANAWSKI</a>
                 </div>
             </div>
             <div className="screen-inner">

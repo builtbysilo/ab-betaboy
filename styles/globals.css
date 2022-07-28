@@ -28,7 +28,7 @@ p, h1, h2, h3, h4, h5, h6, button {
 
 @media screen and (max-width: 479px) {
   :root {
-    --level-size: 280px;
+    --level-size: 300px;
   }
 
   .pu-con p {
@@ -388,7 +388,7 @@ section {
   height: 50px;
   top: -50px;
   background: #535353;
-  box-shadow: inset -4px -1px 4px 0 rgb(0 0 0 / 60%), inset 4px -1px 4px 0 rgb(255 255 255 / 60%), -1px 1px 1px 0 rgb(255 255 255 / 80%);
+  box-shadow: inset -4px -1px 4px 0 rgb(0 0 0 / 5%), inset 4px -1px 4px 0 rgb(255 255 255 / 80%), -1px 1px 1px 0 rgb(255 255 255 / 80%);
 }
 
 .gb-bar:after {
@@ -400,7 +400,7 @@ section {
   height: 50px;
   top: -50px;
   background: #505050;
-  box-shadow: inset -4px -1px 4px 0 rgb(0 0 0 / 60%), inset 4px -1px 4px 0 rgb(255 255 255 / 60%), -1px 1px 1px 0 rgb(255 255 255 / 80%);
+  box-shadow: inset -4px -1px 4px 0 rgb(0 0 0 / 5%), inset 4px -1px 4px 0 rgb(255 255 255 / 80%), -1px 1px 1px 0 rgb(255 255 255 / 80%);
 }
 
 
@@ -417,6 +417,15 @@ section {
   z-index: 1;
   margin-right: 40px;
   padding: 0 10px 0 10px;
+}
+
+.music a {
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  font-family: forma-djr-deck, sans-serif !important;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 0.8rem;
 }
 
 .gb-screen {
@@ -448,11 +457,12 @@ section {
 .screen-top {
   max-width: 100%;
   overflow: visible;
-  height: 14px;
+  height: 12px;
   transform: translateY(0px);
   margin: 0 0 10px 0;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .screen-top::before {
@@ -600,7 +610,7 @@ section {
 }
 
 .mili-sec{
-	color: #a9a9a9;
+	color: #919191;
 }
 
 <pre>.Control-Buttons {
@@ -655,7 +665,7 @@ section {
     text-align: center;
     z-index: 1;
     top: 0;
-    padding: 5%;
+    padding: 20px;
   }
 
   .pu-con p {
@@ -669,9 +679,47 @@ section {
     font-size: 2.5rem;
     color: #fff;
     line-height: 2rem;
-    padding: 5% 2%;
   }
 
+  .pu-con li {
+    font-size: 1rem;
+    color: #fff;
+    line-height: 1rem;
+  }
+
+  .board-con {
+    width: var(--level-size);
+    height:var(--level-size);
+    overflow: scroll;
+  }
+
+  .lb-time-con {
+    display: flex;
+    flex-direction: row;
+    padding: 0 calc(var(--tile-size) *2);
+    padding-bottom: 10px;
+  }
+
+
+  .lb-name {
+    display: flex;
+    width: 65%;
+  }
+
+  .lb-name h4 {
+    font-size: 1.4rem;
+  }
+
+  .lb-time {
+    display: flex;
+    width: 35%;
+    justify-content: flex-end;
+  }
+
+  .lb-time h4 {
+    font-size: 1.4rem;
+    text-align: right;
+  }
 
   .start-button {
     width: 350px;
@@ -719,4 +767,55 @@ border: 0px;
 font-size: 20px;
   }
 
+  .back-button {
+    width: 350px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  background-image: url("../public/Button-Back.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+text-align: center;
+background-color: transparent;
+cursor: pointer;
+border: 0px;
+font-size: 20px;
+  }
 
+.leaderboard-but {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.lb-but {
+  background-color: #c2fffe;
+  border-radius: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.scores-but {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.s-but {
+  background-color: #c2fffe;
+  border-radius: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -16,6 +16,7 @@ export default function Level1Map() {
     const [activeLvl, setActiveLvl] = useState(0);
 
 
+
     useLayoutEffect(() => {
 
             var gamewidth = document.getElementById("lvl1").clientWidth;
@@ -28,6 +29,12 @@ export default function Level1Map() {
             var touchDown = document.getElementById("touchdown");
             var touchLeft = document.getElementById("touchleft");
             var touchRight = document.getElementById("touchright");
+
+            let audio = new Audio("/BetaBoySong.mp3")
+            audio.loop = true;
+            audio.play()
+
+
 
             touchUp.addEventListener("touchstart", e => {
                 root.style.setProperty('--updown', '-33.33%');
@@ -60,125 +67,125 @@ export default function Level1Map() {
             if(activeLvl === 0){
                 var board = createBoard();
                 board.createRade({ item: "rade", top: tile_size * 18, left: tile_size * 2 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 16, left: tile_size * 7 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 17, left: tile_size * 8 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 16, left: tile_size * 17 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 9, left: tile_size * 15 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 10, left: tile_size * 18 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 4, left: tile_size * 1 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 4, left: tile_size * 18 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 6, left: tile_size * 13 });
-                board.createEnemy({ item: "merchant1", top: tile_size * 8, left: tile_size * 5 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 16, left: tile_size * 7 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 17, left: tile_size * 8 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 16, left: tile_size * 17 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 9, left: tile_size * 15 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 10, left: tile_size * 18 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 4, left: tile_size * 1 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 4, left: tile_size * 18 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 6, left: tile_size * 13 });
+                // board.createEnemy({ item: "merchant1", top: tile_size * 8, left: tile_size * 5 });
 
                 board.createItem({ item: "chest1", top: tile_size * 1, left: tile_size * 14 });
 
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 1 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 2 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 4 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 5 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 6 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 7 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 8 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 9 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 10 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 11 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 12 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 13 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 15 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 16 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 17 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 18 });
-                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 1 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 2 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 4 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 5 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 6 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 7 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 9 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 10 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 11 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 12 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 13 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 15 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 16 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 17 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 18 });
+                // board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 8 });
-                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 9 });
-                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 13 });
-                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 15 });
+                // board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 9 });
+                // board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 13 });
+                // board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 15 });
 
-                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 8 });
 
-                board.createItem({ item: "forniture", top: tile_size * 6, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 6, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 6, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 6, left: tile_size * 8 });
 
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 8 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 9 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 10 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 11 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 12 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 13 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 14 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 15 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 16 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 17 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 18 });
-                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 9 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 10 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 11 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 12 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 13 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 14 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 15 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 16 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 17 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 18 });
+                // board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 8, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 8, left: tile_size * 9 });
+                // board.createItem({ item: "forniture", top: tile_size * 8, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 8, left: tile_size * 9 });
 
-                board.createItem({ item: "forniture", top: tile_size * 9, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 9, left: tile_size * 3 });
 
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 0 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 1 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 2 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 4 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 5 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 6 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 7 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 8 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 11 });
-                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 12 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 0 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 1 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 2 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 4 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 5 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 6 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 7 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 11 });
+                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 12 });
 
-                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 0 });
-                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 1 });
-                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 3 });
-                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 8 });
-                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 12 });
+                // board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 0 });
+                // board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 1 });
+                // board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 3 });
+                // board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 12 });
 
-                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 8 });
-                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 12 });
-                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 16 });
-                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 17 });
-                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 18 });
-                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 8 });
+                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 12 });
+                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 16 });
+                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 17 });
+                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 18 });
+                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 9 });
-                board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 10 });
-                board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 12 });
-                board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 9 });
+                // board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 10 });
+                // board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 12 });
+                // board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 0 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 1 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 4 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 5 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 9 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 10 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 11 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 12 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 16 });
-                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 0 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 1 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 4 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 5 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 9 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 10 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 11 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 12 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 16 });
+                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 5 });
-                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 16 });
-                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 5 });
+                // board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 16 });
+                // board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 5 });
-                board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 16 });
-                board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 5 });
+                // board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 16 });
+                // board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 5 });
-                board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 16 });
-                board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 17 });
-                board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 19 });
+                // board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 5 });
+                // board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 16 });
+                // board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 17 });
+                // board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 19 });
 
-                board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 1 });
-                board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 4 });
-                board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 5 });
+                // board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 1 });
+                // board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 4 });
+                // board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 5 });
 
 
 
