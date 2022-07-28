@@ -3,6 +3,7 @@ import React, { useEffect, useState, useLayoutEffect  } from 'react';
 import { useGame, useUpdateGame} from './gameContext'
 import { useTime, useUpdateTime} from './timerContext'
 
+import lvl1GIF from '/public/MAP_LVL_01.gif'
 
 
 export default function Level1Map() {
@@ -490,7 +491,7 @@ export default function Level1Map() {
     return (
         <div className="levelCon" id="levelCon">
             <div id="level1" className="level"></div>
-            <Image className="board-img" id="lvl1" width="600px" height="600px" src="/MAP_LVL_01.gif" alt="AlphaBots Level 1" />
+            <Image className="board-img" id="lvl1" width="600px" height="600px" src={lvl1GIF} alt="AlphaBots Level 1" />
         </div>
     );
 }

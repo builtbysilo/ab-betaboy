@@ -9,6 +9,9 @@ import TopBarAlt from '@components/GameBoy/topBarAlt'
 import Screen from '@components/GameBoy/screen'
 import Controls from '@components/GameBoy/controls'
 
+import game from '/public/GameLogo.gif'
+
+
 function Home({ auth }) {
 
 
@@ -40,7 +43,7 @@ const { user, loginWithTwitter, logout, error } = auth;
                         {/* <div className="start-button">
                             <h4>Connect With Twitter</h4>
                         </div> */}
-                        <Image className="start-screen" width="600px" height="600px" src="/GameLogo.gif" alt="AlphaBots Level 1" />
+                        <Image className="start-screen" width="600px" height="600px" src={game} alt="AlphaBots Level 1" />
                     </div>
                 </div>
             </div>
