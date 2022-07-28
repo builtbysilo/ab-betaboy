@@ -2,16 +2,23 @@ import firebase from "firebase/compat/app";
 import 'firebase/compat/firestore'
 import useAuth from '../firebase/Auth';
 import { useTime, useUpdateTime} from '../components/GameBoy/timerContext'
+import { useGame, useUpdateGame} from '../components/GameBoy/gameContext'
+
 
 
 const WriteToCloudFirestore = () => {
     const { user } = useAuth();
     const context = useTime();
+    const context2 = useGame();
     const timestamp = new Date().toLocaleString('en-US', {timeZone: 'CST',});
 
     const [isPaused, setIsPaused] = context['paused'];
     const [isActive, setIsActive] = context['active'];
     const [time, setTime] = context['time'];
+
+    const [score, setScore] = context2['score'];
+
+    const {toggleScore}  = useUpdateGame()
 
     var minutes = ("0" + Math.floor((time / 60000) % 60)).slice(-2)
     var seconds = ("0" + Math.floor((time / 1000) % 60)).slice(-2)
@@ -21,6 +28,7 @@ const WriteToCloudFirestore = () => {
 
     const sendData = () => {
         try {
+            toggleScore()
             firebase.firestore().collection('games').doc().set({
                 uid: user.uid,
                 player: user.displayName,

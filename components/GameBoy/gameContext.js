@@ -15,6 +15,7 @@ export function GameProvider({ children }) {
     const [popUp, setPopUp] = useState(1)
     const [lvl, setLvl] = useState(1)
     const [lvlActive, setLvlActive] = useState(true);
+    const [score, setScore] = useState(true);
 
     const toggleStart = () => {
         setPopUp(1)
@@ -49,6 +50,10 @@ export function GameProvider({ children }) {
         setLvlActive(false);
     }
 
+    const toggleScore = () => {
+        setScore(false);
+    }
+
 
     // const toggleStart = () => {
     //     setStartGame(current => !current)
@@ -58,7 +63,8 @@ export function GameProvider({ children }) {
     const states = {
         'lvls':[lvl, setLvl],
         'popups':[popUp, setPopUp],
-        'lvlActive': [lvlActive, setLvlActive]
+        'lvlActive': [lvlActive, setLvlActive],
+        'score': [score, setScore]
     }
     const value = {
         toggleStart,
@@ -69,6 +75,7 @@ export function GameProvider({ children }) {
         nextLevel,
         resetLevel,
         toggleActive,
+        toggleScore
     }
 
 

@@ -157,6 +157,7 @@ export default function Level1Map() {
 
                 board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 9 });
                 board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 10 });
+                board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 12 });
                 board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 16 });
                 board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 19 });
 

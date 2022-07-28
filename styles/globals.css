@@ -545,7 +545,7 @@ section {
 
 .gb-dpad {
   left: 0;
-
+  will-change: transform;
   /* top: 585.325px; width: 301.6px; height: 235px; */
 }
 
