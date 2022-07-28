@@ -6,7 +6,7 @@ import StopWatch from '../StopWatch';
 
 
 
-export default function TopBar() {
+export default function TopBarAlt() {
 
     const { user, loginWithTwitter, logout, error } = useAuth();
     console.log(user);
@@ -21,7 +21,6 @@ return (
                         {/* <h3>CURRENT PLAYER</h3> */}
                         <h4>{user?.displayName}</h4>
                         {error && <h1>{error}</h1>}
-                        <button onClick={logout}>Logout</button>
                     </div>
                 </div>
                 <div className="time">

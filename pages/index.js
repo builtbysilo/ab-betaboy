@@ -5,6 +5,9 @@ import { withPublic } from "../firebase/Route"
 import WriteToCloudFirestore from "../firebase/Write"
 import ReadToCloudFirestore from "../firebase/Read"
 import StopWatch from '@components/StopWatch';
+import TopBarAlt from '@components/GameBoy/topBarAlt'
+import Screen from '@components/GameBoy/screen'
+import Controls from '@components/GameBoy/controls'
 
 function Home({ auth }) {
 
@@ -21,11 +24,12 @@ const { user, loginWithTwitter, logout, error } = auth;
 
       <div className="app">
         <div className="gb">
-            <div className="gb-bar"></div>
-
+            <TopBarAlt/>
             <div className="gb-screen started">
                 <div className="screen-top">
-                <h3>00:12:12</h3>
+                <div className="music">
+                    <a href="https://linktr.ee/prodbydairy" target="_blank">MUSIC BY: DARIUSH DANAWSKI</a>
+                </div>
                 </div>
                 <div className="screen-inner">
                     <div id="level" className="level">
@@ -41,30 +45,9 @@ const { user, loginWithTwitter, logout, error } = auth;
                 </div>
             </div>
             <div className="logo">
-                <Image src="/BetaBoyLogo.svg" alt="Decentel BetaBoy" width="200px" height="25px"/>
+                <Image src="/BetaBoyLogo.svg" className="betaboylogo" alt="Decentel BetaBoy" width="200px" height="25px"/>
             </div>
-            <div className="controls">
-            <section className="gb-dpad">
-                <div className="touchcon">
-                    <div className="touchup" id="touchup"></div>
-                    <div className="touchdown" id="touchdown"></div>
-                </div>
-                <div className="dpad-inner" role="button">
-                    <img src="/UpDownSprite.png" className="updownimg"/>
-                </div>
-
-
-            </section>
-            <section className="gb-buttons">
-            <div className="touchcon horizontal">
-                    <div className="touchleft" id="touchleft"></div>
-                    <div className="touchright" id="touchright"></div>
-                </div>
-                <div className="buttons-inner" role="button">
-                    <img src="/LeftRight_Sprite.png" className="leftrightimg"/>
-                </div>
-            </section>
-            </div>
+            <Controls/>
         </div>
 </div>
     </div>

@@ -43,6 +43,7 @@ p, h1, h2, h3, h4, h5, h6, button {
     height: 46px !important;
     font-size: 1rem !important;
 }
+
 }
 
 * {
@@ -510,6 +511,17 @@ section {
   padding-bottom: 5px;
 }
 
+.username button {
+  border: 0;
+  font-size: 14px;
+}
+
+.time h3 {
+  font-size: 14px;
+  padding-bottom: 5px;
+  text-align:right;
+}
+
 .gb-dpad {
   left: 0;
 
@@ -700,14 +712,13 @@ section {
   .board-con {
     width: var(--level-size);
     height:var(--level-size);
-    overflow: scroll;
+    overflow-y: scroll;
   }
 
   .lb-time-con {
     display: flex;
     flex-direction: row;
-    padding: 0 calc(var(--tile-size) *2);
-    padding-bottom: 10px;
+    padding: 0 var(--tile-size);
   }
 
 
@@ -717,7 +728,7 @@ section {
   }
 
   .lb-name h4 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .lb-time {
@@ -727,7 +738,7 @@ section {
   }
 
   .lb-time h4 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: right;
   }
 
@@ -801,8 +812,9 @@ font-size: 20px;
   justify-content: flex-end;
   width: 100%;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: calc(var(--helmet-offset) *2);
+  right: calc(var(--helmet-offset) *2);
+  cursor: pointer;
 }
 
 .lb-but {
@@ -811,6 +823,7 @@ font-size: 20px;
   padding: 10px;
   display: flex;
   justify-content: flex-end;
+  width: calc(var(--level-size)/8);
 }
 
 .scores-but {
@@ -818,8 +831,9 @@ font-size: 20px;
   justify-content: flex-start;
   width: 100%;
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: calc(var(--helmet-offset) *2);
+  left: calc(var(--helmet-offset) *2);
+  cursor: pointer;
 }
 
 .s-but {
@@ -828,6 +842,7 @@ font-size: 20px;
   padding: 10px;
   display: flex;
   justify-content: flex-end;
+  width: calc(var(--level-size)/8);
 }
 
 .opi-logo {
