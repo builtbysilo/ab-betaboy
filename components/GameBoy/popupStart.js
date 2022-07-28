@@ -23,7 +23,9 @@ return (
                     <Image width="40px" height="40px" src="/LeaderBoard-Icon.png" alt="Leaderboards" onClick={() => {setPopUp(5)}} />
                 </div>
             </div>
-            <Image className="board-img" width="250px" height="125px" src="/OutpostInvaders-Logo.png" alt="AlphaBots Level 1" />
+            <div className="opi-logo">
+                <Image layout="intrinsic" width="300" height="150" src="/OutpostInvaders-Logo.png" alt="AlphaBots Level 1" />
+            </div>
             <p>{props.msg}</p>
             <button className="back-button" onClick={() => {handleStart(); setPopUp(0)}}>
                         {/* <Image width="20px" height="20px" className="twitter-icon" src="/Twitter-Icon.png" alt="Twitter" /> */}

@@ -410,6 +410,7 @@ section {
   justify-content: space-between;
   width: 80%;
   align-items: center;
+  padding: 10px 0;
 }
 
 .music {
@@ -500,6 +501,15 @@ section {
   background: #a9a9a9;
 }
 
+.username h4 {
+  font-size: 18px;
+}
+
+.username h3 {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
 .gb-dpad {
   left: 0;
 
@@ -588,7 +598,7 @@ section {
 
 
 .stop-watch{
-	height: 50px;
+	height: 40px;
 	width: 150px;
 	background-color: #dadada;
 	display: flex;
@@ -818,4 +828,8 @@ font-size: 20px;
   padding: 10px;
   display: flex;
   justify-content: flex-end;
+}
+
+.opi-logo {
+  width: calc(var(--level-size)/1.5)
 }
