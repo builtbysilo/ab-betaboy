@@ -629,6 +629,8 @@ section {
 .digits{
 	font-size: 18px;
 	color: #080808;
+  width: 30px;
+  text-align: center;
 }
 
 .mili-sec{

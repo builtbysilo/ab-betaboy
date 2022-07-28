@@ -13,8 +13,8 @@ const { user, loginWithTwitter, logout, error } = auth;
   return (
     <div className="container">
     <Head>
-      <title>BetaBoy Emulator</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>BetaBoy - Outpost Invaders</title>
+      <link rel="icon" href="/favicon.png" />
       <link rel="stylesheet" href="https://use.typekit.net/swz2ypo.css"></link>
     </Head>
 

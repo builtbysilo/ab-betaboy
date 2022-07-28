@@ -3,8 +3,6 @@ import React, { useEffect, useState, useLayoutEffect  } from 'react';
 import { useGame, useUpdateGame} from './gameContext'
 import { useTime, useUpdateTime} from './timerContext'
 
-import lvl3GIF from '/public/MAP_LVL_03.gif'
-
 
 export default function Level1Map() {
 
@@ -179,11 +177,11 @@ export default function Level1Map() {
                 board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 11 });
                 board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 12 });
 
-                board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 9 });
                 board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 11 });
                 board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 12 });
                 board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 19 });
 
+                board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 8 });
                 board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 11 });
                 board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 12 });
 
@@ -450,7 +448,7 @@ export default function Level1Map() {
     return (
         <div className="levelCon" id="levelCon">
             <div id="level1" className="level"></div>
-            <Image className="board-img" id="lvl3" width="600px" height="600px" src={lvl3GIF} alt="AlphaBots Level 1" />
+            <Image className="board-img" id="lvl3" width="600px" height="600px" src="/LVL03_01.png" alt="AlphaBots Level 1" />
         </div>
     );
 }

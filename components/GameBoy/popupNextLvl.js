@@ -21,7 +21,7 @@ return (
 <div id="popup" className="popup">
 <div className="pu-con">
     <Image className="board-img" width="100px" height="100px" src="/TrophyIcon.png" alt="Level Won" />
-    <p>{props.winner} is safe! Now let's help {props.next} hide.</p>
+    <p>{props.winner} is safe! <br></br> Now let's help {props.next} hide.</p>
     <button className="play-button" onClick={() => {setLvl(lvl + 1); setPopUp(0); handlePauseResume() }}>
                 {/* <Image width="20px" height="20px" className="twitter-icon" src="/Twitter-Icon.png" alt="Twitter" /> */}
                 NEXT LEVEL

@@ -9,7 +9,6 @@ import TopBarAlt from '@components/GameBoy/topBarAlt'
 import Screen from '@components/GameBoy/screen'
 import Controls from '@components/GameBoy/controls'
 
-import game from '/public/GameLogo.gif'
 
 
 function Home({ auth }) {
@@ -20,8 +19,8 @@ const { user, loginWithTwitter, logout, error } = auth;
   return (
     <div className="container">
       <Head>
-        <title>BetaBoy Emulator</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>BetaBoy - Outpost Invaders</title>
+        <link rel="icon" href="/favicon.png" />
         <link rel="stylesheet" href="https://use.typekit.net/swz2ypo.css"></link>
       </Head>
 
@@ -38,12 +37,12 @@ const { user, loginWithTwitter, logout, error } = auth;
                     <div id="level" className="level">
                     <button className="start-button" onClick={loginWithTwitter}>
                         <Image layout="intrinsic" width="20px" height="20px" className="twitter-icon" src="/Twitter-Icon.png" alt="Twitter" />
-                        Connect With Twitter
+                        Connect Twitter
                     </button>
                         {/* <div className="start-button">
                             <h4>Connect With Twitter</h4>
                         </div> */}
-                        <Image className="start-screen" width="600px" height="600px" src={game} alt="AlphaBots Level 1" />
+                        <Image className="start-screen" width="600px" height="600px" src="/StartScreen.jpg" alt="AlphaBots Level 1" />
                     </div>
                 </div>
             </div>

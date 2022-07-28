@@ -27,7 +27,6 @@ export function GameProvider({ children }) {
 
     const toggleWin = () => {
         setPopUp(3)
-        console.log(popUp)
     }
 
     const toggleSubmit = () => {
@@ -48,7 +47,6 @@ export function GameProvider({ children }) {
 
     const toggleActive = () => {
         setLvlActive(false);
-        console.log(lvlActive)
     }
 
 
