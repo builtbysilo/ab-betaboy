@@ -14,7 +14,7 @@ p, h1, h2, h3, h4, h5, h6, button {
 }
 
 :root {
-  --level-size: 500px;
+  --level-size: 600px;
   --tile-size: calc(var(--level-size) / 20);
   --helmet-offset: calc(var(--tile-size) / 4);
   --sprite-size: calc(var(--tile-size) * 4);
