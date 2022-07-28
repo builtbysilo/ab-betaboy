@@ -22,6 +22,8 @@ p, h1, h2, h3, h4, h5, h6, button {
   --leftright: 0%;
   --controls: calc(var(--level-size) / 1.5);
   --heroTop: 300px;
+  --active: absolute;
+  --hide: block;
 }
 
 @media screen and (max-width: 479px) {
@@ -71,6 +73,13 @@ p, h1, h2, h3, h4, h5, h6, button {
   margin: 0 auto;
 }
 
+.levelCon {
+max-width: var(--level-size);
+height: auto;
+position: relative;
+margin: 0 auto;
+}
+
 .board {
   width: 100%;
   height: 100%;
@@ -82,14 +91,56 @@ p, h1, h2, h3, h4, h5, h6, button {
   height: 100%;
 }
 
-.chest {
+.chest1 {
   width: var(--tile-size);
-  height: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
   position: absolute;
-  background-image: url("https://github.com/LucasLevino/Heroway/blob/main/src/assets/imgs/chest.png?raw=true");
+  z-index: 1;
+  background-image: url("../public/Gem_Sprite.png");
   background-repeat: no-repeat;
-  background-position: 0px 0px;
-  animation: chest-animation 4s steps(2) infinite;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
+}
+
+.chest2 {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  background-image: url("../public/Gem_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
+}
+
+.chest3 {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  background-image: url("../public/Gem_Sprite.png");
+  background-repeat: no-repeat;
+  background-size: var(--sprite-size);
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  background-position: 0 calc(-1 * var(--tile-size) + var(--helmet-offset));
+  top: var(--herotop);
+}
+
+.chest4 {
+  width: var(--tile-size);
+  height: calc(var(--tile-size) + var(--helmet-offset));
+  position: absolute;
+  z-index: 1;
+  animation: heroAnimation 1s steps(4) infinite;
+  transform: translateY(calc(-1 * var(--helmet-offset)));
+  top: var(--herotop);
 }
 
 @keyframes chest-animation {
@@ -108,6 +159,8 @@ p, h1, h2, h3, h4, h5, h6, button {
   position: absolute;
 }
 
+
+
 .hero {
   width: var(--tile-size);
   height: calc(var(--tile-size) + var(--helmet-offset));
@@ -125,8 +178,9 @@ p, h1, h2, h3, h4, h5, h6, button {
 .rade {
   width: var(--tile-size);
   height: calc(var(--tile-size) + var(--helmet-offset));
-  position: absolute;
-  z-index: 1;
+  position: var(--active);
+  display: var(--hide);
+  z-index: 2;
   background-image: url("../public/Rade_Sprite.png");
   background-repeat: no-repeat;
   background-size: var(--sprite-size);
@@ -140,7 +194,7 @@ p, h1, h2, h3, h4, h5, h6, button {
   width: var(--tile-size);
   height: calc(var(--tile-size) + var(--helmet-offset));
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   background-image: url("../public/Zeek_Sprite.png");
   background-repeat: no-repeat;
   background-size: var(--sprite-size);
@@ -154,7 +208,7 @@ p, h1, h2, h3, h4, h5, h6, button {
   width: var(--tile-size);
   height: calc(var(--tile-size) + var(--helmet-offset));
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   background-image: url("../public/Forah_Sprite.png");
   background-repeat: no-repeat;
   background-size: var(--sprite-size);
@@ -168,7 +222,7 @@ p, h1, h2, h3, h4, h5, h6, button {
   width: var(--tile-size);
   height: calc(var(--tile-size) + var(--helmet-offset));
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   background-image: url("../public/Theo_Sprite.png");
   background-repeat: no-repeat;
   background-size: var(--sprite-size);
@@ -606,6 +660,13 @@ section {
 
   .pu-con p {
     font-size: 1.5rem;
+    color: #fff;
+    line-height: 2rem;
+    padding: 5% 2%;
+  }
+
+  .pu-con h4 {
+    font-size: 2.5rem;
     color: #fff;
     line-height: 2rem;
     padding: 5% 2%;

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useLayoutEffect  } from 'react';
 import { useGame, useUpdateGame} from './gameContext'
 import { useTime, useUpdateTime} from './timerContext'
 
@@ -8,357 +8,438 @@ import { useTime, useUpdateTime} from './timerContext'
 export default function Level1Map() {
 
     const { toggleWin, toggleGameOver } = useUpdateGame()
-    const {handleStart, handlePauseResume, handleReset}  = useUpdateTime()
+    const {handlePauseResume}  = useUpdateTime()
+
+    const context = useGame();
+    const [popUp, setPopUp] = context['popups'];
+
+    const [activeLvl, setActiveLvl] = useState(0);
 
 
+    useLayoutEffect(() => {
 
-    useEffect(() => {
-
-            const gamewidth = document.getElementById("lvl").clientWidth;
-            const game_size = gamewidth;
-            const tile_size = gamewidth / 20;
-            const helmet_offset = tile_size * 0.5;
+            var gamewidth = document.getElementById("lvl2").clientWidth;
+            var tile_size = gamewidth / 20;
+            var helmet_offset = tile_size * 0.5;
 
             let root = document.documentElement;
 
-            const touchUp = document.getElementById("touchup");
-            const touchDown = document.getElementById("touchdown");
-            const touchLeft = document.getElementById("touchleft");
-            const touchRight = document.getElementById("touchright");
+            var touchUp = document.getElementById("touchup");
+            var touchDown = document.getElementById("touchdown");
+            var touchLeft = document.getElementById("touchleft");
+            var touchRight = document.getElementById("touchright");
+
+            touchUp.addEventListener("touchstart", e => {
+                root.style.setProperty('--updown', '-33.33%');
+            })
+            touchUp.addEventListener("touchend", e => {
+                root.style.setProperty('--updown', '0%');
+            })
+
+            touchDown.addEventListener("touchstart", e => {
+                root.style.setProperty('--updown', '-66.66%');
+            })
+            touchDown.addEventListener("touchend", e => {
+                root.style.setProperty('--updown', '0%');
+            })
+
+            touchLeft.addEventListener("touchstart", e => {
+                root.style.setProperty('--leftright', '-33.33%');
+            })
+            touchLeft.addEventListener("touchend", e => {
+                root.style.setProperty('--leftright', '0%');
+            })
+
+            touchRight.addEventListener("touchstart", e => {
+                root.style.setProperty('--leftright', '-66.66%');
+            })
+            touchRight.addEventListener("touchend", e => {
+                root.style.setProperty('--leftright', '0%');
+            })
+
+            if(activeLvl === 0){
+                var board = createBoard();
+                board.createZeek({ item: "zeek", top: tile_size * 18, left: tile_size * 13 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 13, left: tile_size * 17 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 17, left: tile_size * 9 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 13, left: tile_size * 8 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 12, left: tile_size * 1 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 11, left: tile_size * 5 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 7, left: tile_size * 3 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 10, left: tile_size * 13 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 4, left: tile_size * 18 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 3, left: tile_size * 15 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 3, left: tile_size * 7 });
+
+                board.createItem({ item: "chest2", top: tile_size * 1, left: tile_size * 3 });
+
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 1 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 2 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 4 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 5 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 6 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 7 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 8 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 9 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 10 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 12 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 13 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 15 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 16 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 17 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 18 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 19 });
+
+                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 2 });
+                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 4 });
+                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 9 });
+                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 10 });
+                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 12 });
+                board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 13 });
+
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 0 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 1 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 2 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 3 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 4 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 5 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 6 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 7 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 8 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 9 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 10 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 12 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 13 });
+                board.createItem({ item: "forniture", top: tile_size * 5, left: tile_size * 14 });
+
+                board.createItem({ item: "forniture", top: tile_size * 6, left: tile_size * 1 });
+                board.createItem({ item: "forniture", top: tile_size * 6, left: tile_size * 14 });
+
+                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 8 });
+                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 9 });
+                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 10 });
+                board.createItem({ item: "forniture", top: tile_size * 7, left: tile_size * 14 });
+
+                board.createItem({ item: "forniture", top: tile_size * 8, left: tile_size * 10 });
+
+                board.createItem({ item: "forniture", top: tile_size * 9, left: tile_size * 0 });
+                board.createItem({ item: "forniture", top: tile_size * 9, left: tile_size * 1 });
+                board.createItem({ item: "forniture", top: tile_size * 9, left: tile_size * 2 });
+                board.createItem({ item: "forniture", top: tile_size * 9, left: tile_size * 3 });
+                board.createItem({ item: "forniture", top: tile_size * 9, left: tile_size * 10 });
+
+                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 3 });
+                board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 10 });
+
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 3 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 7 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 8 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 9 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 10 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 12 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 13 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 15 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 16 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 17 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 18 });
+                board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 19 });
+
+                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 3 });
+                board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 7 });
+
+                board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 7 });
+
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 7 });
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 12 });
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 13 });
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 16 });
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 17 });
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 18 });
+                board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 19 });
+
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 4 });
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 5 });
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 6 });
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 16 });
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 17 });
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 18 });
+                board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 19 });
+
+                board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 5 });
+                board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 19 });
+
+                board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 17, left: tile_size * 19 });
+
+                board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 11 });
+                board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 15 });
 
 
 
-            function createBoard() {
-
-                const boardElement = document.getElementById("level");
-                const elements = [];
-
-                function createElement(options) {
-                    // ? item.options | top. options | left.options
-                    let { item, top, left, width, height, transform } = options;
-
-                    var currentElement = { item, currentPosition: { top, left } };
-                    elements.push(currentElement);
 
 
-                    var htmlElement = document.createElement("div");
-                    htmlElement.className = item;
-                    htmlElement.id = item;
-                    htmlElement.style.top = top + "px";
-                    htmlElement.style.left = left + "px";
-                    htmlElement.style.width = tile_size + "px";
-                    htmlElement.style.height = (tile_size + helmet_offset) + "px";
-                    // htmlElement.style.transform = "translateY" + -1 * helmet_offset;
-                    // htmlElement.style.backgroundposition = 0 + (-1 * tile_size + helmet_offset);
 
-                    boardElement.appendChild(htmlElement);
 
-                    function getNewDirection(buttonPressed, position) {
-                        switch (buttonPressed) {
-                            case "ArrowUp":
-                                return { top: position.top - tile_size, left: position.left };
-                            case "ArrowRight":
-                                return { top: position.top, left: position.left + tile_size };
-                            case "ArrowDown":
-                                return { top: position.top + tile_size, left: position.left };
-                            case "ArrowLeft":
-                                return { top: position.top, left: position.left - tile_size };
-                            default:
-                                return { top: position.top, left: position.left };
-                        }
-                    }
 
-                    window.addEventListener("keydown", function (event) {
-                        if (event.defaultPrevented) {
-                            return;
-                        }
 
-                        switch (event.key) {
-                            case "ArrowDown":
-                                root.style.setProperty('--updown', '-66.66%');
-                            break;
-                            case "ArrowUp":
-                                root.style.setProperty('--updown', '-33.33%');
-                            break;
-                            case "ArrowLeft":
-                                root.style.setProperty('--leftright', '-33.33%');
-                            break;
-                            case "ArrowRight":
-                                root.style.setProperty('--leftright', '-66.66%');
-                            default:
+
+                setActiveLvl(activeLvl + 1);
+
+                function createBoard() {
+                    const boardElement = document.getElementById("level1");
+                    const elements = [];
+
+                    function createElement(options) {
+                        // ? item.options | top. options | left.options
+                        let { item, top, left } = options;
+
+                        var currentElement = { item, currentPosition: { top, left } };
+                        elements.push(currentElement);
+
+
+                        var htmlElement = document.createElement("div");
+                        htmlElement.className = item;
+                        htmlElement.id = item;
+                        htmlElement.style.top = top + "px";
+                        htmlElement.style.left = left + "px";
+                        htmlElement.style.width = tile_size + "px";
+                        htmlElement.style.height = (tile_size + helmet_offset) + "px";
+                        // htmlElement.style.transform = "translateY" + -1 * helmet_offset;
+                        // htmlElement.style.backgroundposition = 0 + (-1 * tile_size + helmet_offset);
+
+                        boardElement.appendChild(htmlElement);
+
+                        window.addEventListener("keydown", function (event) {
+                            if (event.defaultPrevented) {
                                 return;
+                            }
+
+                            switch (event.key) {
+                                case "ArrowDown":
+                                    root.style.setProperty('--updown', '-66.66%');
+                                break;
+                                case "ArrowUp":
+                                    root.style.setProperty('--updown', '-33.33%');
+                                break;
+                                case "ArrowLeft":
+                                    root.style.setProperty('--leftright', '-33.33%');
+                                break;
+                                case "ArrowRight":
+                                    root.style.setProperty('--leftright', '-66.66%');
+                                default:
+                                    return;
+                            }
+                            event.preventDefault();
+                        }, true);
+
+                        window.addEventListener("keyup", function (event) {
+                            if (event.defaultPrevented) {
+                                return;
+                            }
+
+                            switch (event.key) {
+                                case "ArrowDown":
+                                    root.style.setProperty('--updown', '0%');
+                                break;
+                                case "ArrowUp":
+                                    root.style.setProperty('--updown', '0%');
+                                break;
+                                case "ArrowLeft":
+                                    root.style.setProperty('--leftright', '0%');
+                                break;
+                                case "ArrowRight":
+                                    root.style.setProperty('--leftright', '0%');
+                                default:
+                                return;
+                            }
+
+                            event.preventDefault();
+                        }, true);
+
+
+                        function getNewDirection(buttonPressed, position) {
+                            switch (buttonPressed) {
+                                case "ArrowUp":
+                                    return { top: position.top - tile_size, left: position.left };
+                                case "ArrowRight":
+                                    return { top: position.top, left: position.left + tile_size };
+                                case "ArrowDown":
+                                    return { top: position.top + tile_size, left: position.left };
+                                case "ArrowLeft":
+                                    return { top: position.top, left: position.left - tile_size };
+                                default:
+                                    return { top: position.top, left: position.left };
+                            }
                         }
-                        event.preventDefault();
-                    }, true);
 
-                    window.addEventListener("keyup", function (event) {
-                        if (event.defaultPrevented) {
-                            return;
-                        }
-
-                        switch (event.key) {
-                            case "ArrowDown":
-                                root.style.setProperty('--updown', '0%');
-                            break;
-                            case "ArrowUp":
-                                root.style.setProperty('--updown', '0%');
-                            break;
-                            case "ArrowLeft":
-                                root.style.setProperty('--leftright', '0%');
-                            break;
-                            case "ArrowRight":
-                                root.style.setProperty('--leftright', '0%');
-                            default:
-                            return;
-                        }
-
-                        event.preventDefault();
-                    }, true);
-
-                    function validateMoviment(position, conflictItem) {
-                        return (
-                            position.left >= 0 &&
-                            position.left <= (tile_size * 19) &&
-                            position.top >= tile_size &&
-                            position.top <= (tile_size * 18) &&
-                            conflictItem?.item !== "forniture"
-                        );
-                    }
-
-                    function getMovimentConflict(position, els) {
-                        const conflictItem = els.find((currentElement) => {
+                        function validateMoviment(position, conflictItem) {
                             return (
-                                currentElement.currentPosition.top === position.top &&
-                                currentElement.currentPosition.left === position.left
+                                position.left >= 0 &&
+                                position.left <= (tile_size * 19) &&
+                                position.top >= tile_size &&
+                                position.top <= (tile_size * 18) &&
+                                conflictItem?.item !== "forniture"
                             );
-                        });
-
-                        return conflictItem;
-                    }
-
-                    function validateConflits(cEl, conflictItem) {
-
-
-                        if (!conflictItem) {
-                            return;
                         }
 
-                        if (cEl.item === "zeek") {
-                            if (conflictItem.item === "merchant2" || conflictItem.item === "trap") {
-                                // console.log("----ZEEK BUMBED------")
+                        function getMovimentConflict(position, els) {
+                            const conflictItem = els.find((currentElement) => {
+                                return (
+                                    currentElement.currentPosition.top === position.top &&
+                                    currentElement.currentPosition.left === position.left
+                                );
+                            });
+
+
+                            return conflictItem;
+                        }
+
+                        function validateConflits(cEl, conflictItem) {
+
+                            if (!conflictItem) {
+                                return;
+                            }
+
+                            if (cEl.item === "zeek") {
+                                if (conflictItem.item === "merchant2" || conflictItem.item === "trap") {
+                                    // console.log("----ZEEK BUMBED------")
+                                    handlePauseResume();
+                                    toggleGameOver();
+                                    clearlvl2();
+                                    setTimeout(() => {
+                                        window.location.reload(false);
+                                    }, 1500)
+                                }
+
+                                if (conflictItem.item === "chest2") {
+                                    // console.log("----WIN------")
+                                    handlePauseResume();
+                                    clearlvl2();
+                                    setTimeout(() => {
+                                        toggleWin();
+                                    }, 150)
+                                }
+                            }
+
+                            if (cEl.item === "merchant2" && conflictItem.item === "zeek") {
+                                // console.log("----xMERCHANT BUMBEDx------")
                                 handlePauseResume();
                                 toggleGameOver();
-                                setTimeout(() => {
-                                    window.location.reload(false);
-                                }, 1500)
-                            }
-
-                            if (conflictItem.item === "chest") {
-                                // console.log("----WIN------")
-                                handlePauseResume();
-                                toggleWin();
+                                clearlvl2();
+                                    setTimeout(() => {
+                                        window.location.reload(false);
+                                    }, 1500)
                             }
                         }
 
-                        if (cEl.item === "merchant2" && conflictItem.item === "zeek") {
-                            // console.log("----xMERCHANT BUMBEDx------")
-                            handlePauseResume();
-                            toggleGameOver();
-                                setTimeout(() => {
-                                    window.location.reload(false);
-                                }, 1500)
+                        function move(buttonPressed) {
+                            const newPosition = getNewDirection(
+                                buttonPressed,
+                                currentElement.currentPosition
+                            );
+                            const conflictItem = getMovimentConflict(newPosition, elements);
+                            const isValidMovement = validateMoviment(newPosition, conflictItem);
+
+                            if (isValidMovement) {
+                                currentElement.currentPosition = newPosition;
+
+                                htmlElement.style.top = newPosition.top + "px";
+                                htmlElement.style.left = newPosition.left + "px";
+
+                                validateConflits(currentElement, conflictItem);
+                            }
                         }
+
+                        return {
+                            move: move
+                        };
                     }
 
-                    function move(buttonPressed) {
-                        const newPosition = getNewDirection(
-                            buttonPressed,
-                            currentElement.currentPosition
-                        );
-                        const conflictItem = getMovimentConflict(newPosition, elements);
-                        const isValidMovement = validateMoviment(newPosition, conflictItem);
+                    function createItem(options) {
+                        createElement(options);
+                    }
 
-                        if (isValidMovement) {
-                            currentElement.currentPosition = newPosition;
+                    function createZeek(options) {
+                        const zeek = createElement({
+                            item: "zeek",
+                            top: options.top,
+                            left: options.left,
+                            width: options.width,
+                            height: options.height,
+                            transform: options.transform,
+                        });
 
-                            htmlElement.style.top = newPosition.top + "px";
-                            htmlElement.style.left = newPosition.left + "px";
+                        document.addEventListener("keydown", (event) => {
+                            zeek.move(event.key);
+                        });
 
-                            validateConflits(currentElement, conflictItem);
-                        }
+                        touchUp.addEventListener("touchstart", () => {
+                            zeek.move("ArrowUp");
+                        })
+
+                        touchDown.addEventListener("touchstart", () => {
+                            zeek.move("ArrowDown");
+                        })
+
+                        touchLeft.addEventListener("touchstart", () => {
+                            zeek.move("ArrowLeft");
+                        })
+                        touchRight.addEventListener("touchstart", () => {
+                            zeek.move("ArrowRight");
+                        })
+                    }
+
+                    function createEnemy(options) {
+                        const enemy = createElement({
+                            item: "merchant2",
+                            top: options.top,
+                            left: options.left,
+                            width: options.width,
+                            height: options.height,
+                            // width: options.transform,
+                            // height: options.backgroundposition
+                        });
+
+                        setInterval(() => {
+                            const direction = ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"];
+                            const randomIndex = Math.floor(Math.random() * direction.length);
+                            const randomDirection = direction[randomIndex];
+
+                            enemy.move(randomDirection);
+                        }, 1000);
                     }
 
                     return {
-                        move: move
+                        createItem: createItem,
+                        createZeek: createZeek,
+                        createEnemy: createEnemy
                     };
                 }
-
-                function createItem(options) {
-                    createElement(options);
-                }
-
-                function createZeek(options) {
-                    const zeek = createElement({
-                        item: "zeek",
-                        top: options.top,
-                        left: options.left,
-                        width: options.width,
-                        height: options.height,
-                        transform: options.transform,
-                    });
-
-                    document.addEventListener("keydown", (event) => {
-                        zeek.move(event.key);
-                    });
-
-                    touchUp.addEventListener("touchstart", () => {
-                        zeek.move("ArrowUp");
-                    })
-
-                    touchDown.addEventListener("touchstart", () => {
-                        zeek.move("ArrowDown");
-                    })
-
-                    touchLeft.addEventListener("touchstart", () => {
-                        zeek.move("ArrowLeft");
-                    })
-                    touchRight.addEventListener("touchstart", () => {
-                        zeek.move("ArrowRight");
-                    })
-                }
-
-                function createEnemy(options) {
-                    const enemy = createElement({
-                        item: "merchant2",
-                        top: options.top,
-                        left: options.left,
-                        width: options.width,
-                        height: options.height,
-                        // width: options.transform,
-                        // height: options.backgroundposition
-                    });
-
-                    setInterval(() => {
-                        const direction = ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"];
-                        const randomIndex = Math.floor(Math.random() * direction.length);
-                        const randomDirection = direction[randomIndex];
-
-                        enemy.move(randomDirection);
-                    }, 1000);
-                }
-
-
-                return {
-                    createItem: createItem,
-                    createZeek: createZeek,
-                    createEnemy: createEnemy
-                };
             }
 
+                function clearlvl2(){
+                    setActiveLvl(activeLvl + 1);
+                    console.log(activeLvl);
+                    // const level1 = document?.getElementById("level1");
+                    // level1.innerHTML = '';
+                    // const elemnts = level1.innerHTML.length;
+                    // console.log(elemnts);
+                    board.createItem({ item: "forniture", top: tile_size * 2, left: tile_size * 3 });
+                }
 
-                const board = createBoard();
-                board.createZeek({ item: "zeek", top: tile_size * 18, left: tile_size * 2 });
-                board.createEnemy({ item: "merchant2", top: tile_size * 15, left: tile_size * 15 });
-                board.createEnemy({ item: "merchant2", top: tile_size * 15, left: tile_size * 15 });
-                board.createEnemy({ item: "merchant2", top: tile_size * 15, left: tile_size * 15 });
-                // board.createEnemy({ top: tile_size * 15, left: tile_size * 15 });
-                // board.createEnemy({ top: tile_size * 15, left: tile_size * 15 });
-                // board.createEnemy({ top: tile_size * 10, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 10, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 10, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 10, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 5, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 5, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 5, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 5, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 5, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 6, left: tile_size * 10 });
-                // board.createEnemy({ top: tile_size * 4, left: tile_size * 4 });
-                // board.createEnemy({ top: tile_size * 4, left: tile_size * 4 });
-                // board.createEnemy({ top: tile_size * 4, left: tile_size * 4 });
-                // board.createEnemy({ top: tile_size * 4, left: tile_size * 4 });
-                // board.createEnemy({ top: tile_size * 3, left: tile_size * 15 });
-                // board.createEnemy({ top: tile_size * 3, left: tile_size * 15 });
-                // board.createEnemy({ top: tile_size * 2, left: tile_size * 15 });
-                // board.createEnemy({ top: tile_size * 2, left: tile_size * 15 });
-
-                board.createItem({ item: "chest", top: tile_size * 2, left: tile_size * 18 });
-                // board.createItem({ item: "trap", top: tile_size * 15, left: tile_size * 16 });
-                // board.createItem({ item: "trap", top: tile_size * 10, left: tile_size * 4 });
-                // board.createItem({ item: "trap", top: tile_size * 6, left: tile_size * 8 });
-                // board.createItem({ item: "trap", top: tile_size * 2, left: tile_size * 8 });
-                // board.createItem({ item: "trap", top: tile_size * 5, left: tile_size * 11 });
-                // board.createItem({ item: "trap", top: tile_size * 4, left: tile_size * 13 });
-
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 0 });
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 1 });
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 4 });
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 5 });
-                // board.createItem({ item: "forniture", top: tile_size * 15, left: tile_size * 5 });
-                // board.createItem({ item: "forniture", top: tile_size * 16, left: tile_size * 5 });
-
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 0 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 1 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 2 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 3 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 4 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 5 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 6 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 7 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 8 });
-                // board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 9 });
-                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 9 });
-                // board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 9 });
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 9 });
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 10 });
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 11 });
-                // board.createItem({ item: "forniture", top: tile_size * 14, left: tile_size * 12 });
-                // board.createItem({ item: "forniture", top: tile_size * 13, left: tile_size * 12 });
-                // board.createItem({ item: "forniture", top: tile_size * 12, left: tile_size * 12 });
-                // board.createItem({ item: "forniture", top: tile_size * 11, left: tile_size * 12 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 12 });
-                // board.createItem({ item: "forniture", top: tile_size * 10, left: tile_size * 11 });
-
-
-
-                touchUp.addEventListener("touchstart", e => {
-                    root.style.setProperty('--updown', '-33.33%');
-                })
-                touchUp.addEventListener("touchend", e => {
-                    root.style.setProperty('--updown', '0%');
-                })
-
-                touchDown.addEventListener("touchstart", e => {
-                    root.style.setProperty('--updown', '-66.66%');
-                })
-                touchDown.addEventListener("touchend", e => {
-                    root.style.setProperty('--updown', '0%');
-                })
-
-                touchLeft.addEventListener("touchstart", e => {
-                    root.style.setProperty('--leftright', '-33.33%');
-                })
-                touchLeft.addEventListener("touchend", e => {
-                    root.style.setProperty('--leftright', '0%');
-                })
-
-                touchRight.addEventListener("touchstart", e => {
-                    root.style.setProperty('--leftright', '-66.66%');
-                })
-                touchRight.addEventListener("touchend", e => {
-                    root.style.setProperty('--leftright', '0%');
-                })
-
-
-    },[])
-
+    },[popUp])
 
 
     return (
-        <div id="level" className="level">
-            <Image className="board-img" id="lvl" width="600px" height="600px" src="/MAP_LVL_02.gif" alt="AlphaBots Level 1" />
+        <div className="levelCon" id="levelCon">
+            <div id="level1" className="level"></div>
+            <Image className="board-img" id="lvl2" width="600px" height="600px" src="/MAP_LVL_02.gif" alt="AlphaBots Level 1" />
         </div>
     );
 }
-
-

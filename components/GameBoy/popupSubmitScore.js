@@ -22,11 +22,10 @@ return (
 
 <div id="popup" className="popup">
 <div className="pu-con">
-    <Image className="board-img" width="100px" height="100px" src="/TrophyIcon.png" alt="Level Won" />
+    {/* <Image className="board-img" width="100px" height="100px" src="/TrophyIcon.png" alt="Level Won" /> */}
     <p>FINAL TIME:</p>
     <h4>{timeFormated}</h4>
-    <p>You did it!</p>
-    <p>All AlphaBots haavae successfully avoided the Merchants and are safe.</p>
+    <p>All AlphaBots have successfully avoided the Merchants and are safe.</p>
     <WriteToCloudFirestore/>
 </div>
 <Image className="board-img" width="600px" height="600px" src="/PopUpBG.jpg" alt="AlphaBots Level 1" />

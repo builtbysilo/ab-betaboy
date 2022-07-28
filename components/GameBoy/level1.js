@@ -16,6 +16,7 @@ export default function Level1() {
     const context = useGame();
 
     const [popUp, setPopUp] = context['popups'];
+    const [lvl, setLvl] = context['lvls'];
 
     const puStartMsg = 'The Merchants of Valor have gotten inside the Outpost and there is no time to escape. Get each of our AlphaBots to safety in hopes of surviving the invasion!';
 
@@ -24,23 +25,22 @@ export default function Level1() {
 
     return (
     <>
-    {popUp == 1 &&
+    {popUp === 1 &&
         <PopUpStart msg={puStartMsg} />
     }
-    {popUp == 2 &&
+    {popUp === 2 &&
         <PopUpGameOver />
     }
-    {popUp == 3 &&
+    {popUp === 3 &&
         <PopUpNextLvl winner={winnerAB} next={nextAB} lvl='2' />
     }
-    {popUp == 5 &&
+    {popUp === 5 &&
         <PopUpLeaderBoard/>
     }
-    {popUp == 0 &&
+    {popUp === 0 &&
         <Level1Map />
     }
     </>
 
     )
 }
-
