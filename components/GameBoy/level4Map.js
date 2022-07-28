@@ -60,18 +60,18 @@ export default function Level1Map() {
             if(activeLvl === 0){
                 var board = createBoard();
                 board.createTheo({ item: "theo", top: tile_size * 18, left: tile_size * 17 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 14, left: tile_size * 19 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 11, left: tile_size * 16 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 5, left: tile_size * 19 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 4, left: tile_size * 13 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 8, left: tile_size * 11 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 15, left: tile_size * 12 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 16, left: tile_size * 3 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 13, left: tile_size * 7 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 10, left: tile_size * 6 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 8, left: tile_size * 0 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 3, left: tile_size * 2 });
-                // board.createEnemy({ item: "merchant4", top: tile_size * 7, left: tile_size * 7 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 14, left: tile_size * 19 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 11, left: tile_size * 16 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 5, left: tile_size * 19 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 4, left: tile_size * 13 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 8, left: tile_size * 11 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 15, left: tile_size * 12 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 16, left: tile_size * 3 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 13, left: tile_size * 7 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 10, left: tile_size * 6 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 8, left: tile_size * 0 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 3, left: tile_size * 2 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 7, left: tile_size * 7 });
 
 
                 board.createItem({ item: "chest4", top: tile_size * 1, left: tile_size * 9 });
@@ -88,6 +88,7 @@ export default function Level1Map() {
                 board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 7 });
                 board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 8 });
                 board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 13 });
+                board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 14 });
                 board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 15 });
                 board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 16 });
                 board.createItem({ item: "forniture", top: tile_size * 1, left: tile_size * 17 });

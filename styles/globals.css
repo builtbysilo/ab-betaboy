@@ -819,9 +819,6 @@ font-size: 20px;
 }
 
 .lb-but {
-  background-color: #c2fffe;
-  border-radius: 50px;
-  padding: 10px;
   display: flex;
   justify-content: flex-end;
   width: calc(var(--level-size)/8);
@@ -838,9 +835,6 @@ font-size: 20px;
 }
 
 .s-but {
-  background-color: #c2fffe;
-  border-radius: 50px;
-  padding: 10px;
   display: flex;
   justify-content: flex-end;
   width: calc(var(--level-size)/8);

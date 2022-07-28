@@ -20,7 +20,7 @@ return (
         <div className="pu-con">
             <div className="leaderboard-but">
                 <div className="lb-but">
-                    <Image layout="intrinsic" width="40px" height="40px" src="/LeaderBoard-Icon.png" alt="Leaderboards" onClick={() => {setPopUp(5)}} />
+                    <Image layout="intrinsic" width="50px" height="50px" src="/LeaderBoard.png" alt="Leaderboards" onClick={() => {setPopUp(5)}} />
                 </div>
             </div>
             <div className="opi-logo">

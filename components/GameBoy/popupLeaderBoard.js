@@ -27,7 +27,7 @@ return (
     {/* <Image className="board-img" width="100px" height="100px" src="/TrophyIcon.png" alt="Level Won" /> */}
     <div className="scores-but">
         <div className="s-but">
-            <Image width="40px" height="40px" layout="intrinsic" src="/LeaderBoard-Back.png" alt="Back" onClick={() => {setPopUp(1)}} />
+            <Image width="50px" height="50px" layout="intrinsic" src="/BackArrow.png" alt="Back" onClick={() => {setPopUp(1)}} />
         </div>
     </div>
     <p>LEADERBOARD</p>
