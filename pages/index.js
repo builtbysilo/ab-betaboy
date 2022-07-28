@@ -34,7 +34,7 @@ const { user, loginWithTwitter, logout, error } = auth;
                 <div className="screen-inner">
                     <div id="level" className="level">
                     <button className="start-button" onClick={loginWithTwitter}>
-                        <Image width="20px" height="20px" className="twitter-icon" src="/Twitter-Icon.png" alt="Twitter" />
+                        <Image layout="intrinsic" width="20px" height="20px" className="twitter-icon" src="/Twitter-Icon.png" alt="Twitter" />
                         Connect With Twitter
                     </button>
                         {/* <div className="start-button">
@@ -49,7 +49,7 @@ const { user, loginWithTwitter, logout, error } = auth;
             </div>
             <Controls/>
         </div>
-</div>
+        </div>
     </div>
   )
 }

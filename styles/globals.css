@@ -743,7 +743,7 @@ section {
   }
 
   .start-button {
-    width: 350px;
+    width: calc(var(--level-size)/1.2);
   height: 80px;
   display: flex;
   gap: 10px;
@@ -766,8 +766,9 @@ top: 70%;
 background-color: transparent;
 cursor: pointer;
 border: 0px;
-font-size: 20px;
+font-size: 1.2rem;
   }
+
 
   .play-button {
     width: 350px;
