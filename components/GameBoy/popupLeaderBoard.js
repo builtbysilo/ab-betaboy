@@ -13,11 +13,11 @@ export default function PopUpLeaderBoard() {
         const context = useGame();
         const [popUp,setPopUp] = context['popups'];
 
-        useEffect(() =>
-            firebase.firestore().collection('games').orderBy('time').limit(40).onSnapshot((snapshot) => {
-                setGames(snapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
-            })
-        ,[]);
+        // useEffect(() =>
+        //     firebase.firestore().collection('games').orderBy('time').limit(40).onSnapshot((snapshot) => {
+        //         setGames(snapshot.docs.map(doc => ({...doc.data(), id: doc.id})))
+        //     })
+        // ,[]);
 
 
 return (
@@ -32,7 +32,8 @@ return (
     </div>
     <p>LEADERBOARD</p>
     <div className="board-con">
-        {games.map(game => (
+        <p>Leaderboard Temporarily Unavailable</p>
+        {/* {games.map(game => (
             <div className="lb-time-con">
                 <div className="lb-name">
                     <h4>{game.player}</h4>
@@ -41,7 +42,7 @@ return (
                     <h4>{game.timeFormated}</h4>
                 </div>
             </div>
-        ))}
+        ))} */}
     </div>
 
 
