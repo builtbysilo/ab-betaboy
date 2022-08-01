@@ -7,7 +7,6 @@ import { useTime, useUpdateTime} from './timerContext'
 export default function Level1Map() {
 
     const { toggleWin, toggleGameOver } = useUpdateGame()
-    const {handlePauseResume}  = useUpdateTime()
 
     const context = useGame();
     const [popUp, setPopUp] = context['popups'];
@@ -69,6 +68,10 @@ export default function Level1Map() {
                 board.createEnemy({ item: "merchant2", top: tile_size * 4, left: tile_size * 18 });
                 board.createEnemy({ item: "merchant2", top: tile_size * 3, left: tile_size * 15 });
                 board.createEnemy({ item: "merchant2", top: tile_size * 3, left: tile_size * 7 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 9, left: tile_size * 17 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 18, left: tile_size * 1 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 7, left: tile_size * 19 });
+                board.createEnemy({ item: "merchant2", top: tile_size * 7, left: tile_size * 7 });
 
                 board.createItem({ item: "chest2", top: tile_size * 1, left: tile_size * 3 });
 
@@ -182,13 +185,6 @@ export default function Level1Map() {
 
                 board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 11 });
                 board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 15 });
-
-
-
-
-
-
-
 
 
 
@@ -312,7 +308,6 @@ export default function Level1Map() {
                             if (cEl.item === "zeek") {
                                 if (conflictItem.item === "merchant2" || conflictItem.item === "trap") {
                                     // console.log("----ZEEK BUMBED------")
-                                    handlePauseResume();
                                     toggleGameOver();
                                     clearlvl2();
                                     setTimeout(() => {
@@ -322,7 +317,6 @@ export default function Level1Map() {
 
                                 if (conflictItem.item === "chest2") {
                                     // console.log("----WIN------")
-                                    handlePauseResume();
                                     clearlvl2();
                                     setTimeout(() => {
                                         toggleWin();
@@ -332,7 +326,6 @@ export default function Level1Map() {
 
                             if (cEl.item === "merchant2" && conflictItem.item === "zeek") {
                                 // console.log("----xMERCHANT BUMBEDx------")
-                                handlePauseResume();
                                 toggleGameOver();
                                 clearlvl2();
                                     setTimeout(() => {

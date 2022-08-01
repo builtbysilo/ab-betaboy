@@ -5,10 +5,8 @@ import GameBoyMain from '../components/GameBoy/gameBoyMain'
 
 
 
-function Play({ auth }) {
+export default function Play() {
 
-
-const { user, loginWithTwitter, logout, error } = auth;
 
   return (
     <div className="container">
@@ -25,5 +23,5 @@ const { user, loginWithTwitter, logout, error } = auth;
   )
 }
 
-export default withProtected(Play);
+
 

@@ -8,7 +8,6 @@ import { useTime, useUpdateTime} from './timerContext'
 export default function Level1Map() {
 
     const { toggleGameOver, toggleSubmit } = useUpdateGame()
-    const {handlePauseResume}  = useUpdateTime()
 
     const context = useGame();
     const [popUp, setPopUp] = context['popups'];
@@ -72,6 +71,13 @@ export default function Level1Map() {
                 board.createEnemy({ item: "merchant4", top: tile_size * 8, left: tile_size * 0 });
                 board.createEnemy({ item: "merchant4", top: tile_size * 3, left: tile_size * 2 });
                 board.createEnemy({ item: "merchant4", top: tile_size * 7, left: tile_size * 7 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 7, left: tile_size * 17 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 18, left: tile_size * 10 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 13, left: tile_size * 1 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 5, left: tile_size * 1 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 10, left: tile_size * 14 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 7, left: tile_size * 4 });
+                board.createEnemy({ item: "merchant4", top: tile_size * 18, left: tile_size * 5 });
 
 
                 board.createItem({ item: "chest4", top: tile_size * 1, left: tile_size * 9 });
@@ -303,7 +309,6 @@ export default function Level1Map() {
                             if (cEl.item === "theo") {
                                 if (conflictItem.item === "merchant4" || conflictItem.item === "trap") {
                                     // console.log("----THEO BUMBED------")
-                                    handlePauseResume();
                                     toggleGameOver();
                                     clearlvl4();
                                     setTimeout(() => {
@@ -313,18 +318,16 @@ export default function Level1Map() {
 
                                 if (conflictItem.item === "chest4") {
                                     // console.log("----WIN------")
-                                    handlePauseResume();
                                     clearlvl4();
                                     // toggleActive();
                                     setTimeout(() => {
                                         toggleSubmit();
-                                    }, 150)
+                                    }, 150);
                                 }
                             }
 
                             if (cEl.item === "merchant4" && conflictItem.item === "theo") {
                                 // console.log("----xMERCHANT BUMBEDx------")
-                                handlePauseResume();
                                 toggleGameOver();
                                 clearlvl4();
                                     setTimeout(() => {

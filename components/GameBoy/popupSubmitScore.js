@@ -1,43 +1,36 @@
 import Image from 'next/image';
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react';
-import { useTime, useUpdateTime} from './timerContext'
-import { useGame, useUpdateGame} from './gameContext'
-import WriteToCloudFirestore from '/firebase/Write';
-
 
 export default function PopUpSubmitScore() {
 
-    const context = useTime();
-    const context2 = useGame();
+    const [discord, setDiscord] = useState('');
 
-    const [isPaused, setIsPaused] = context['paused'];
-    const [isActive, setIsActive] = context['active'];
-    const [time, setTime] = context['time'];
+    const discordFormated = discord.replace("#", "%23")
 
-    const [score, setScore] = context2['score'];
+    const discordChange = () => {
+        setDiscord(discord.value);
+    }
 
-    var minutes = ("0" + Math.floor((time / 60000) % 60)).slice(-2)
-    var seconds = ("0" + Math.floor((time / 1000) % 60)).slice(-2)
-    var miliseconds = ("0" + ((time / 10) % 100)).slice(-2)
 
-    const timeFormated = minutes + ":" + seconds + ":" + miliseconds
 
 return (
 
 <div id="popup" className="popup">
 <div className="pu-con">
     {/* <Image className="board-img" width="100px" height="100px" src="/TrophyIcon.png" alt="Level Won" /> */}
-    <p>FINAL TIME:</p>
-    <h4>{timeFormated}</h4>
-    <p>All AlphaBots have successfully avoided the Merchants and are safe.</p>
-    {score &&
-        <WriteToCloudFirestore/>
-    }
-    {!score &&
-        <p>Submitting Score...</p>
-    }
+    <h4>You did it!</h4>
+    <p>All AlphaBots have successfully avoided the Merchants and are safe.<br></br><br></br>
+    Submit your Discord Username below for a chance to a CUSTOM ALPHABOT PFP.</p>
+        <input type="text" className="discord-input" id="discord" name="discord" placeholder="Discord Username" value={discord} onChange={e => setDiscord(e.target.value)} />
+        <a href={`https://docs.google.com/forms/d/e/1FAIpQLSd49X_j1KgE1tTSbMkqW12Oi1spoqzHviDfLN-735BMlmIaXw/formResponse?entry.1016923379=${discordFormated}&submit=Submit&fbzx=-607651750101053024`}>
+            <button className="play-button">Submit</button>
+        </a>
+    {/* <a href={'https://docs.google.com/forms/d/e/1FAIpQLSd49X_j1KgE1tTSbMkqW12Oi1spoqzHviDfLN-735BMlmIaXw/formResponse?entry.1016923379=adfasdfasdf&submit=Submit&fbzx=-607651750101053024' + discord} target="_blank">
+        <button className="play-button">SUBMIT</button>
+    </a> */}
 </div>
-<Image className="board-img" width="600px" height="600px" src="/PopUpBG.jpg" alt="AlphaBots Level 1" />
+<Image className="board-img" width="600px" height="600px" src="/GameEnd.jpg" alt="AlphaBots Level 1" />
 
 </div>
 )

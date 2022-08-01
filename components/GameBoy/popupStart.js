@@ -18,11 +18,6 @@ return (
 
     <div id="popup" className="popup">
         <div className="pu-con">
-            <div className="leaderboard-but">
-                <div className="lb-but">
-                    <Image layout="intrinsic" width="50px" height="50px" src="/LeaderBoard.png" alt="Leaderboards" onClick={() => {setPopUp(5)}} />
-                </div>
-            </div>
             <div className="opi-logo">
                 <Image layout="intrinsic" width="300" height="150" src="/OutpostInvaders-Logo.png" alt="AlphaBots Level 1" />
             </div>

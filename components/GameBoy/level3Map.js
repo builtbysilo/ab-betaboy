@@ -7,7 +7,6 @@ import { useTime, useUpdateTime} from './timerContext'
 export default function Level1Map() {
 
     const { toggleWin, toggleGameOver } = useUpdateGame()
-    const {handlePauseResume}  = useUpdateTime()
 
     const context = useGame();
     const [popUp, setPopUp] = context['popups'];
@@ -69,6 +68,15 @@ export default function Level1Map() {
                 board.createEnemy({ item: "merchant3", top: tile_size * 3, left: tile_size * 1 });
                 board.createEnemy({ item: "merchant3", top: tile_size * 4, left: tile_size * 5 });
                 board.createEnemy({ item: "merchant3", top: tile_size * 2, left: tile_size * 15 });
+                board.createEnemy({ item: "merchant3", top: tile_size * 13, left: tile_size * 16 });
+                board.createEnemy({ item: "merchant3", top: tile_size * 7, left: tile_size * 16 });
+                board.createEnemy({ item: "merchant3", top: tile_size * 18, left: tile_size * 0 });
+                board.createEnemy({ item: "merchant3", top: tile_size * 2, left: tile_size * 9 });
+                board.createEnemy({ item: "merchant3", top: tile_size * 18, left: tile_size * 18 });
+                board.createEnemy({ item: "merchant3", top: tile_size * 7, left: tile_size * 0 });
+                board.createEnemy({ item: "merchant3", top: tile_size * 8, left: tile_size * 10 });
+
+
 
                 board.createItem({ item: "chest3", top: tile_size * 1, left: tile_size * 18 });
 
@@ -184,16 +192,6 @@ export default function Level1Map() {
                 board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 8 });
                 board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 11 });
                 board.createItem({ item: "forniture", top: tile_size * 18, left: tile_size * 12 });
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -317,7 +315,6 @@ export default function Level1Map() {
                             if (cEl.item === "forah") {
                                 if (conflictItem.item === "merchant3" || conflictItem.item === "trap") {
                                     // console.log("----FORAH BUMBED------")
-                                    handlePauseResume();
                                     toggleGameOver();
                                     clearlvl3();
                                     setTimeout(() => {
@@ -327,7 +324,6 @@ export default function Level1Map() {
 
                                 if (conflictItem.item === "chest3") {
                                     // console.log("----WIN------")
-                                    handlePauseResume();
                                     clearlvl3();
                                     // toggleActive();
                                     setTimeout(() => {
@@ -338,7 +334,6 @@ export default function Level1Map() {
 
                             if (cEl.item === "merchant3" && conflictItem.item === "forah") {
                                 // console.log("----xMERCHANT BUMBEDx------")
-                                handlePauseResume();
                                 toggleGameOver();
                                 clearlvl3();
                                     setTimeout(() => {

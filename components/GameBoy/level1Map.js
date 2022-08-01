@@ -1,14 +1,12 @@
 import Image from 'next/image';
 import React, { useEffect, useState, useLayoutEffect  } from 'react';
 import { useGame, useUpdateGame} from './gameContext'
-import { useTime, useUpdateTime} from './timerContext'
 
 
 
 export default function Level1Map() {
 
     const { toggleWin, toggleGameOver } = useUpdateGame()
-    const {handlePauseResume}  = useUpdateTime()
 
     const context = useGame();
     const [popUp, setPopUp] = context['popups'];
@@ -76,6 +74,8 @@ export default function Level1Map() {
                 board.createEnemy({ item: "merchant1", top: tile_size * 4, left: tile_size * 18 });
                 board.createEnemy({ item: "merchant1", top: tile_size * 6, left: tile_size * 13 });
                 board.createEnemy({ item: "merchant1", top: tile_size * 8, left: tile_size * 5 });
+                board.createEnemy({ item: "merchant1", top: tile_size * 2, left: tile_size * 6 });
+                board.createEnemy({ item: "merchant1", top: tile_size * 14, left: tile_size * 14 });
 
                 board.createItem({ item: "chest1", top: tile_size * 1, left: tile_size * 14 });
 
@@ -313,7 +313,6 @@ export default function Level1Map() {
                             if (cEl.item === "rade") {
                                 if (conflictItem.item === "merchant1" || conflictItem.item === "trap") {
                                     // console.log("----RADE BUMBED------")
-                                    handlePauseResume();
                                     toggleGameOver();
                                     clearLvl1();
                                     setTimeout(() => {
@@ -323,7 +322,6 @@ export default function Level1Map() {
 
                                 if (conflictItem.item === "chest1") {
                                     // console.log("----WIN------")
-                                    handlePauseResume();
                                     clearLvl1();
                                     setTimeout(() => {
                                         toggleWin();
@@ -333,7 +331,6 @@ export default function Level1Map() {
 
                             if (cEl.item === "merchant1" && conflictItem.item === "rade") {
                                 // console.log("----xMERCHANT BUMBEDx------")
-                                handlePauseResume();
                                 toggleGameOver();
                                 clearLvl1();
                                     setTimeout(() => {

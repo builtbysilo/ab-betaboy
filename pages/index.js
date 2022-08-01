@@ -8,16 +8,15 @@ import StopWatch from '@components/StopWatch';
 import TopBarAlt from '@components/GameBoy/topBarAlt'
 import Screen from '@components/GameBoy/screen'
 import Controls from '@components/GameBoy/controls'
+import GameBoyMain from '../components/GameBoy/gameBoyMain'
 
 
 
-function Home({ auth }) {
 
+export default function Home() {
 
-const { user, loginWithTwitter, logout, error } = auth;
-
-  return (
-    <div className="container">
+    return (
+      <div className="container">
       <Head>
         <title>BetaBoy - Outpost Invaders</title>
         <link rel="icon" href="/favicon.png" />
@@ -25,35 +24,8 @@ const { user, loginWithTwitter, logout, error } = auth;
       </Head>
 
       <div className="app">
-        <div className="gb">
-            <TopBarAlt/>
-            <div className="gb-screen started">
-                <div className="screen-top">
-                <div className="music">
-                    <a href="https://linktr.ee/prodbydairy" target="_blank">MUSIC BY: DARIUSH DANAWSKI</a>
-                </div>
-                </div>
-                <div className="screen-inner">
-                    <div id="level" className="level">
-                    <button className="start-button" onClick={loginWithTwitter}>
-                        <Image layout="intrinsic" width="20px" height="20px" className="twitter-icon" src="/Twitter-Icon.png" alt="Twitter" />
-                        Connect Twitter
-                    </button>
-                        {/* <div className="start-button">
-                            <h4>Connect With Twitter</h4>
-                        </div> */}
-                        <Image className="start-screen" width="600px" height="600px" src="/StartScreen.jpg" alt="AlphaBots Level 1" />
-                    </div>
-                </div>
-            </div>
-            <div className="logo">
-                <Image src="/BetaBoyLogo.svg" className="betaboylogo" alt="Decentel BetaBoy" width="200px" height="25px"/>
-            </div>
-            <Controls/>
-        </div>
-        </div>
+        <GameBoyMain/>
+      </div>
     </div>
-  )
-}
-
-export default withPublic(Home);
+    )
+  }
